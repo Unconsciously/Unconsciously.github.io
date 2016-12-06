@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Unconsciously</title>
+  <subtitle>懒散人一枚是也~~~</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-12-06T06:17:08.464Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>CACAMO</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CSS3-02 动画</title>
+    <link href="http://yoursite.com/2015/07/17/CSS3/CSS3%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
+    <id>http://yoursite.com/2015/07/17/CSS3/CSS3动画效果/</id>
+    <published>2015-07-17T12:30:10.000Z</published>
+    <updated>2016-12-06T06:17:08.464Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;2D-3D转换-过渡动画transition-关键帧动画-起始动画&quot;&gt;&lt;a href=&quot;#2D-3D转换-过渡动画transition-关键帧动画-起始动画&quot; class=&quot;headerlink&quot; title=&quot;2D/3D转换 | 过渡动画transition | 关键帧动画-起始动画&quot;&gt;&lt;/a&gt;2D/3D转换 | 过渡动画transition | 关键帧动画-起始动画&lt;/h4&gt;&lt;p&gt;移动端中CSS3动画兼容性：&lt;br&gt;webkit[安卓|苹果|欧朋12.0 -80%]、ie[9.0后-标准浏览器]、厂商自家[X5-基于webkit]&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;关键帧动画：第三方动画库：animate.css&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="CSS3" scheme="http://yoursite.com/categories/CSS3/"/>
+    
+    
+      <category term="CSS3" scheme="http://yoursite.com/tags/CSS3/"/>
+    
+      <category term="CSS3动画" scheme="http://yoursite.com/tags/CSS3%E5%8A%A8%E7%94%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS3-01 背景和边框相关属性</title>
+    <link href="http://yoursite.com/2015/07/17/CSS3/%E7%B2%BE%E5%BD%A9%E7%BB%9D%E4%BC%A6%E7%9A%84CSS3/"/>
+    <id>http://yoursite.com/2015/07/17/CSS3/精彩绝伦的CSS3/</id>
+    <published>2015-07-17T00:30:10.000Z</published>
+    <updated>2016-12-06T06:15:59.092Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;背景和边框&quot;&gt;&lt;a href=&quot;#背景和边框&quot; class=&quot;headerlink&quot; title=&quot;背景和边框&quot;&gt;&lt;/a&gt;背景和边框&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;http://www.jb51.net/css/41448.html&quot;&gt;CSS绘制各种集合图形&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.webhek.com/css-sans&quot;&gt;CSS绘制26个英文字母&lt;/a&gt;&lt;/p&gt;
+&lt;h4 id=&quot;背景和边框：&quot;&gt;&lt;a href=&quot;#背景和边框：&quot; class=&quot;headerlink&quot; title=&quot;背景和边框：&quot;&gt;&lt;/a&gt;背景和边框：&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;border-radius：创建圆角：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;四个值: 第一个值为左上角，第二个值为右上角，第三个值为右下角，第四个值为左下角。&lt;/li&gt;
+&lt;li&gt;三个值: 第一个值为左上角, 第二个值为右上角和左下角，第三个值为右下角&lt;/li&gt;
+&lt;li&gt;两个值: 第一个值为左上角与右下角，第二个值为右上角与左下角&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;一个值： 四个圆角值相同  &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CSS3" scheme="http://yoursite.com/categories/CSS3/"/>
+    
+    
+      <category term="CSS3" scheme="http://yoursite.com/tags/CSS3/"/>
+    
+      <category term="border" scheme="http://yoursite.com/tags/border/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS页面重构/优化之行高</title>
+    <link href="http://yoursite.com/2015/05/13/%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%84%E4%B8%8E%E4%BC%98%E5%8C%96.html/CSS%E8%A1%8C%E9%AB%98line-height%E5%92%8C%E6%96%87%E6%9C%AC%E3%80%81%E5%9B%BE%E7%89%87%E7%9A%84%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/"/>
+    <id>http://yoursite.com/2015/05/13/页面重构与优化.html/CSS行高line-height和文本、图片的垂直居中/</id>
+    <published>2015-05-13T12:30:10.000Z</published>
+    <updated>2016-12-06T06:13:45.597Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;行高：具体来说是指两行文字间基线之间的距离。&quot;&gt;&lt;a href=&quot;#行高：具体来说是指两行文字间基线之间的距离。&quot; class=&quot;headerlink&quot; title=&quot;行高：具体来说是指两行文字间基线之间的距离。&quot;&gt;&lt;/a&gt;行高：具体来说是指两行文字间基线之间的距离。&lt;/h4&gt;&lt;p&gt;垂直方向上：vertical-align属性：top,middle,baseline,bottom&lt;br&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/blog/200911/base_line.jpg&quot; alt=&quot;image&quot;&gt;   &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;line-height与line boxes：&lt;blockquote&gt;
+&lt;p&gt;有一空div，如果没有设置至少大于1像素高度height值时，该div的高度就是0；如果该div里面写入一个空格或文字，则此div就会有一个高度。那么您思考过没有，为什么div里面有文字后就会有高度呢？  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="CSS页面重构" scheme="http://yoursite.com/categories/CSS%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%84/"/>
+    
+    
+      <category term="line-height" scheme="http://yoursite.com/tags/line-height/"/>
+    
+      <category term="CSS页面优化" scheme="http://yoursite.com/tags/CSS%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS3-05 多列布局</title>
+    <link href="http://yoursite.com/2015/03/21/CSS3/%E5%A4%9A%E5%88%97%E5%B8%83%E5%B1%80/"/>
+    <id>http://yoursite.com/2015/03/21/CSS3/多列布局/</id>
+    <published>2015-03-21T11:30:00.000Z</published>
+    <updated>2016-12-06T06:17:06.168Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;多列布局：&quot;&gt;&lt;a href=&quot;#多列布局：&quot; class=&quot;headerlink&quot; title=&quot;多列布局：&quot;&gt;&lt;/a&gt;多列布局：&lt;/h4&gt;&lt;p&gt;&lt;em&gt;用float进行图文浑排&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Css多列布局继承自块级布局模式，允许简单地定义多列文本&lt;/em&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;多栏布局 主要用于文字排版，为了最优化使用大的显示屏幕，设计中应限制文字段落的宽度而并列排布：指定的栏数||栏宽首先保证最低需求要满足-即至少栏数||栏宽  &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CSS3" scheme="http://yoursite.com/categories/CSS3/"/>
+    
+    
+      <category term="CSS3" scheme="http://yoursite.com/tags/CSS3/"/>
+    
+      <category term="多列布局" scheme="http://yoursite.com/tags/%E5%A4%9A%E5%88%97%E5%B8%83%E5%B1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS3-04 视口Viewport与CSS响应式布局</title>
+    <link href="http://yoursite.com/2015/03/20/CSS3/%E8%A7%86%E5%8F%A3viewport%E4%B8%8E%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/"/>
+    <id>http://yoursite.com/2015/03/20/CSS3/视口viewport与响应式布局/</id>
+    <published>2015-03-20T01:47:00.000Z</published>
+    <updated>2016-12-06T06:16:53.943Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;视口Viewport&quot;&gt;&lt;a href=&quot;#视口Viewport&quot; class=&quot;headerlink&quot; title=&quot;视口Viewport&quot;&gt;&lt;/a&gt;视口Viewport&lt;/h4&gt;&lt;p&gt;针对手机的不同分辨率、不同屏幕大小，如何使我们开发的应用或页面大小能适应各种高端手机页面呢？—–html5 viewport:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;通过修改meta标签的name属性为viewport，把meta标签中包含的信息设置为移动端视口配置的相关设置。&lt;/li&gt;
+&lt;li&gt;meta:原信息标签-给浏览器解析-可定制meta功能：name=”viewport” -在移动端的手机屏幕即视口,类似input中的type属性
+    
+    </summary>
+    
+      <category term="CSS3" scheme="http://yoursite.com/categories/CSS3/"/>
+    
+    
+      <category term="CSS3" scheme="http://yoursite.com/tags/CSS3/"/>
+    
+      <category term="视口Viewport" scheme="http://yoursite.com/tags/%E8%A7%86%E5%8F%A3Viewport/"/>
+    
+      <category term="响应式布局" scheme="http://yoursite.com/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS3-03 用户界面</title>
+    <link href="http://yoursite.com/2015/03/20/CSS3/%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/"/>
+    <id>http://yoursite.com/2015/03/20/CSS3/用户界面/</id>
+    <published>2015-03-20T00:30:00.000Z</published>
+    <updated>2016-12-06T06:16:19.933Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;在CSS3中增加了一些新的用户界面特性来跳转元素尺寸、框尺寸和外边框&quot;&gt;&lt;a href=&quot;#在CSS3中增加了一些新的用户界面特性来跳转元素尺寸、框尺寸和外边框&quot; class=&quot;headerlink&quot; title=&quot;在CSS3中增加了一些新的用户界面特性来跳转元素尺寸、框尺寸和外边框&quot;&gt;&lt;/a&gt;在CSS3中增加了一些新的用户界面特性来跳转元素尺寸、框尺寸和外边框&lt;/h4&gt;&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;resize&lt;/strong&gt;:指定一个元素是否应该由用户去调整大小-==resize: none(禁调)|both(用户可调宽高)|horizontal(用户可调元素水平方向)|vertical(用户可调元素竖直方向)==，其中由用户指定，即resize:both;overflow:auto;—–最早用于textarea中;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;outline-offset&lt;/strong&gt;:轮廓偏移，并在超出边框边缘的位置绘制轮廓。==outline-offset: length(轮廓与边框边缘距离,默认为0)|inherit(从父元素继承该属性值);== 轮廓与边框的不同：轮廓不占用空间，也可是非矩形：outline:2px solid red;outline-offset:15px;—–非盒模型，则改变后不会破坏页面布局;&lt;br&gt;——轮廓相关属性：outline-width(2)|outline-style(2)|outline-color(2)| outline: 1px solid red;—-&amp;gt;用法同border属性一致;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;text-overflow&lt;/strong&gt;:文本超出时的操作==text-overflow: clip(修剪文本)|ellipsis(显示省略符…来表示被修剪的文本)|string(使用给定的字符串来代表被修剪的文本);== white-space:nowrap;overflow:hidden;text-overflow:ellipsis;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;box-sizing&lt;/strong&gt;: box-sizing: content-box(指定元素宽高只含content)|border-box(指定元素宽高还包含border和padding)|inherit(继承于父元素):&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;cursor&lt;/strong&gt;: 定义鼠标指针放在一个元素边界范围内时所用的光标形状,默认为 ‘箭头’
+    
+    </summary>
+    
+      <category term="CSS3" scheme="http://yoursite.com/categories/CSS3/"/>
+    
+    
+      <category term="CSS3" scheme="http://yoursite.com/tags/CSS3/"/>
+    
+      <category term="用户界面" scheme="http://yoursite.com/tags/%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NodeJS02-进阶篇</title>
+    <link href="http://yoursite.com/2014/11/16/nodejs/NodeJs02/"/>
+    <id>http://yoursite.com/2014/11/16/nodejs/NodeJs02/</id>
+    <published>2014-11-16T12:40:10.000Z</published>
+    <updated>2016-12-06T05:58:55.634Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在NodeJS中，一般将代码合理拆分到不同的JS文件中，每一个文件就是一个模块，而文件路径就是模块名;在编写每个模块时，都有require、exports、module三个预先定义好的变量可供使用。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="NodeJS" scheme="http://yoursite.com/categories/NodeJS/"/>
+    
+    
+      <category term="NodeJs" scheme="http://yoursite.com/tags/NodeJs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NodeJS01-入门篇</title>
+    <link href="http://yoursite.com/2014/11/15/nodejs/Nodejs01/"/>
+    <id>http://yoursite.com/2014/11/15/nodejs/Nodejs01/</id>
+    <published>2014-11-15T11:30:10.000Z</published>
+    <updated>2016-12-06T05:58:33.032Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;NodeJs入门：&quot;&gt;&lt;a href=&quot;#NodeJs入门：&quot; class=&quot;headerlink&quot; title=&quot;NodeJs入门：&quot;&gt;&lt;/a&gt;NodeJs入门：&lt;/h4&gt;&lt;p&gt;&lt;em&gt;Node.js 历史版本下载地址：&lt;br&gt;&lt;a href=&quot;https://nodejs.org/dist/&quot;&gt;https://nodejs.org/dist/&lt;/a&gt;&lt;br&gt;注意：Linux上安装Node.js需要安装Python 2.6 或 2.7 ，不建议安装Python 3.0以上版本&lt;/em&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="NodeJS" scheme="http://yoursite.com/categories/NodeJS/"/>
+    
+    
+      <category term="NodeJs" scheme="http://yoursite.com/tags/NodeJs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>订阅者</title>
+    <link href="http://yoursite.com/2014/09/15/JavaScript%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/Observer-Pattern/"/>
+    <id>http://yoursite.com/2014/09/15/JavaScript设计模式/Observer-Pattern/</id>
+    <published>2014-09-15T11:30:10.000Z</published>
+    <updated>2016-12-06T06:03:44.699Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;当对象间存在一对多关系时，则使用观察者模式（Observer Pattern），即当一个对象(目标对象)的状态发生改变时，所有依赖于它的对象(观察者对象)都得到通知并被自动更新  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;观察者模式属于行为型模式&lt;/em&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="JavaScript" scheme="http://yoursite.com/categories/JavaScript/"/>
+    
+    
+      <category term="JavaScript" scheme="http://yoursite.com/tags/JavaScript/"/>
+    
+      <category term="设计模式" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Html5之字符编码集</title>
+    <link href="http://yoursite.com/2014/07/21/Html5/%E5%AD%97%E7%AC%A6%E9%9B%86/"/>
+    <id>http://yoursite.com/2014/07/21/Html5/字符集/</id>
+    <published>2014-07-21T11:30:10.000Z</published>
+    <updated>2016-12-06T06:13:19.622Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://www.zhangxinxu.com/wordpress/2011/03/html5%E7%BB%88%E6%9E%81%E5%A4%87%E5%BF%98%E5%A4%A7%E5%85%A8%EF%BC%88%E5%9B%BE%E7%89%87%E7%89%88%E6%96%87%E5%AD%97%E7%89%88%EF%BC%89/&quot;&gt;html5终极备忘大全&lt;/a&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Html5" scheme="http://yoursite.com/categories/Html5/"/>
+    
+    
+      <category term="Html5" scheme="http://yoursite.com/tags/Html5/"/>
+    
+      <category term="字符编码集" scheme="http://yoursite.com/tags/%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81%E9%9B%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Html5之触摸事件</title>
+    <link href="http://yoursite.com/2014/07/19/Html5/H5%E4%B9%8B%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/"/>
+    <id>http://yoursite.com/2014/07/19/Html5/H5之触摸事件/</id>
+    <published>2014-07-19T11:30:10.000Z</published>
+    <updated>2016-12-06T06:10:37.664Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;HTML5中的触摸事件：touchstart、touchmove、touchend、touchcancel&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;与PC端事件的差异对比：&lt;/p&gt;
+&lt;p&gt;PC端的mousemove、mouseup、mousedown等事件，在移动端会失效(或使用不正常)，但click事件可以使用，只是会产生300ms的延迟问题&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Html5" scheme="http://yoursite.com/categories/Html5/"/>
+    
+    
+      <category term="Html5" scheme="http://yoursite.com/tags/Html5/"/>
+    
+      <category term="触摸事件" scheme="http://yoursite.com/tags/%E8%A7%A6%E6%91%B8%E4%BA%8B%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Html5之audio/video</title>
+    <link href="http://yoursite.com/2014/07/11/Html5/Html5%E4%B9%8B%E6%A0%87%E7%AD%BE/"/>
+    <id>http://yoursite.com/2014/07/11/Html5/Html5之标签/</id>
+    <published>2014-07-11T11:30:10.000Z</published>
+    <updated>2016-12-06T06:10:45.425Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;HTML5新增了2个与媒体相关的标签video与audio，在网页中可嵌入跨浏览器的音频和视频内容，但不被IE8支持。位于媒体标签开闭之间的任何内容都将作为替补内容，当浏览器不支持这两个媒体元素时显示。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Html5" scheme="http://yoursite.com/categories/Html5/"/>
+    
+    
+      <category term="Html5" scheme="http://yoursite.com/tags/Html5/"/>
+    
+      <category term="audio/video" scheme="http://yoursite.com/tags/audio-video/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS页面重构/优化之absolute/float</title>
+    <link href="http://yoursite.com/2014/05/11/%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%84%E4%B8%8E%E4%BC%98%E5%8C%96.html/%E5%AE%9A%E4%BD%8D%E4%B8%8E%E6%B5%AE%E5%8A%A8/"/>
+    <id>http://yoursite.com/2014/05/11/页面重构与优化.html/定位与浮动/</id>
+    <published>2014-05-11T13:30:10.000Z</published>
+    <updated>2016-12-06T06:07:49.342Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;未设定left/top值的absolute元素&amp;lt;–&amp;gt;float元素,具有破坏性，如清除浮动造成的高度塌陷的问题。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt; 注：关于&lt;strong&gt;脱离文档流&lt;/strong&gt;：即将元素从普通的布局排版中拿走，其他盒子在定位的时候，会当做脱离文档流的元素不存在而进行定位。需要注意的是，使用float脱离文档流时，其他盒子会无视这个元素，但其他盒子内的文本依然会为这个元素让出位置，环绕在周围。而对于使用absolute positioning脱离文档流的元素，其他盒子与其他盒子内的文本都会无视它&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="CSS页面重构" scheme="http://yoursite.com/categories/CSS%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%84/"/>
+    
+    
+      <category term="absolute" scheme="http://yoursite.com/tags/absolute/"/>
+    
+      <category term="float" scheme="http://yoursite.com/tags/float/"/>
+    
+      <category term="CSS页面重构" scheme="http://yoursite.com/tags/CSS%E9%A1%B5%E9%9D%A2%E9%87%8D%E6%9E%84/"/>
+    
+  </entry>
+  
+</feed>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>css3-03 用户界面 | Unconsciously</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Unconsciously,前端,设计,前端开发,用户体验,设计,nodejs,JavaScript" />
+  
+  
+  
+  
+  <meta name="description" content="在CSS3中增加了一些新的用户界面特性来跳转元素尺寸、框尺寸和外边框
+
+resize:指定一个元素是否应该由用户去调整大小-==resize: none(禁调)|both(用户可调宽高)|horizontal(用户可调元素水平方向)|vertical(用户可调元素竖直方向)==，其中由用户指定，即resize:both;overflow:auto;—–最早用于textarea中;
+outline-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3-03 用户界面">
+<meta property="og:url" content="http://yoursite.com/2015/03/20/CSS3/用户界面/index.html">
+<meta property="og:site_name" content="Unconsciously">
+<meta property="og:description" content="在CSS3中增加了一些新的用户界面特性来跳转元素尺寸、框尺寸和外边框
+
+resize:指定一个元素是否应该由用户去调整大小-==resize: none(禁调)|both(用户可调宽高)|horizontal(用户可调元素水平方向)|vertical(用户可调元素竖直方向)==，其中由用户指定，即resize:both;overflow:auto;—–最早用于textarea中;
+outline-">
+<meta property="og:updated_time" content="2016-12-06T06:16:19.933Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3-03 用户界面">
+<meta name="twitter:description" content="在CSS3中增加了一些新的用户界面特性来跳转元素尺寸、框尺寸和外边框
+
+resize:指定一个元素是否应该由用户去调整大小-==resize: none(禁调)|both(用户可调宽高)|horizontal(用户可调元素水平方向)|vertical(用户可调元素竖直方向)==，其中由用户指定，即resize:both;overflow:auto;—–最早用于textarea中;
+outline-">
+  
+  <link rel="icon" href="/css/images/avatar.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../../../../css/style.css">
+
+  <script src="../../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../../../../css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/avatar.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../../../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../about">关于</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../atom.xml">rss</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-CSS3/用户界面" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      CSS3-03 用户界面
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2015-03-20T00:30:00.000Z" itemprop="datePublished">2015-03-20</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../../../../categories/CSS3/">CSS3</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="在CSS3中增加了一些新的用户界面特性来跳转元素尺寸、框尺寸和外边框"><a href="#在CSS3中增加了一些新的用户界面特性来跳转元素尺寸、框尺寸和外边框" class="headerlink" title="在CSS3中增加了一些新的用户界面特性来跳转元素尺寸、框尺寸和外边框"></a>在CSS3中增加了一些新的用户界面特性来跳转元素尺寸、框尺寸和外边框</h4><hr>
+<ul>
+<li><strong>resize</strong>:指定一个元素是否应该由用户去调整大小-==resize: none(禁调)|both(用户可调宽高)|horizontal(用户可调元素水平方向)|vertical(用户可调元素竖直方向)==，其中由用户指定，即resize:both;overflow:auto;—–最早用于textarea中;</li>
+<li><strong>outline-offset</strong>:轮廓偏移，并在超出边框边缘的位置绘制轮廓。==outline-offset: length(轮廓与边框边缘距离,默认为0)|inherit(从父元素继承该属性值);== 轮廓与边框的不同：轮廓不占用空间，也可是非矩形：outline:2px solid red;outline-offset:15px;—–非盒模型，则改变后不会破坏页面布局;<br>——轮廓相关属性：outline-width(2)|outline-style(2)|outline-color(2)| outline: 1px solid red;—-&gt;用法同border属性一致;</li>
+<li><strong>text-overflow</strong>:文本超出时的操作==text-overflow: clip(修剪文本)|ellipsis(显示省略符…来表示被修剪的文本)|string(使用给定的字符串来代表被修剪的文本);== white-space:nowrap;overflow:hidden;text-overflow:ellipsis;</li>
+<li><strong>box-sizing</strong>: box-sizing: content-box(指定元素宽高只含content)|border-box(指定元素宽高还包含border和padding)|inherit(继承于父元素):</li>
+<li><strong>cursor</strong>: 定义鼠标指针放在一个元素边界范围内时所用的光标形状,默认为 ‘箭头’<a id="more"></a>
+</li>
+</ul>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">&lt;!--resize: none|both|horizontal|vertical:--&gt;</div><div class="line">#div1 &#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 100px;</div><div class="line">    border: 1px solid red;</div><div class="line"></div><div class="line">    //resize需要与overflow配合使用才生效</div><div class="line">    resize: none;//禁调</div><div class="line">    resize: both;/均可调</div><div class="line">    resize: horizontal;//可调水平方向</div><div class="line">    resize: vertical;//可调竖直方向</div><div class="line">    overflow: auto;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;!--outline-offset: length|inherit:--&gt;</div><div class="line">#div2 &#123;</div><div class="line">    width: 100px;</div><div class="line">    height: 100px;</div><div class="line">    border: 1px solid black;</div><div class="line"></div><div class="line">    &lt;!--border外15px处--&gt;</div><div class="line">    outline: 1px solid red;</div><div class="line">    outline-offset: 15px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">&lt;!--text-overflow: clip|ellipsis|string;--&gt;</div><div class="line">#div3 &#123;</div><div class="line"></div><div class="line">    //text-overflow需要与white-space和overflow配合使用生效</div><div class="line">    white-space:nowrap; //强制不换行</div><div class="line">    overflow:hidden;</div><div class="line">    border:1px solid #000;</div><div class="line">    text-overflow:ellipsis;</div><div class="line">&#125;</div><div class="line">#div3:hover &#123;</div><div class="line"></div><div class="line">    &lt;!--注:inherit 关键字指定一个属性应从父元素继承它的值,</div><div class="line">    可用于任何 HTML 元素上的任何 CSS 属性--&gt;</div><div class="line">    text-overflow:inherit;</div><div class="line">	overflow:visible;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>cursor相关属性设置：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;p id=&quot;p1&quot; style=&quot;cursor:none&quot;&gt;none&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p2&quot; style=&quot;cursor: context-menu;&quot;&gt;contentxt-menu:右键菜单&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p3&quot; style=&quot;cursor: cell;&quot;&gt;cell:可添加单元&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p4&quot; style=&quot;cursor: vertical-text;&quot;&gt;vertical-text:竖排文本&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p5&quot; style=&quot;cursor: alias;&quot;&gt;alias:别名&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p6&quot; style=&quot;cursor: copy;&quot;&gt;copy&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p7&quot; style=&quot;cursor: no-drop;&quot;&gt;no-drop:禁止&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p8&quot; style=&quot;cursor: not-allowed;&quot;&gt;not-allowed:禁止&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p9&quot; style=&quot;cursor: nesw-resize;&quot;&gt;nesw-resize:45deg调整&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p10&quot; style=&quot;cursor: nwse-resize;&quot;&gt;nwse-resize:135deg调整&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p11&quot; style=&quot;cursor: col-resize;&quot;&gt;col-resize&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p12&quot; style=&quot;cursor: row-resize;&quot;&gt;row-resize&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p13&quot; style=&quot;cursor: all-scroll;&quot;&gt;all-scroll:四方向可调&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p14&quot; style=&quot;cursor: zoom-in;&quot;&gt;zoom-in:放大&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p15&quot; style=&quot;cursor: zoom-out;&quot;&gt;zoom-out:缩小&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p16&quot; style=&quot;cursor: move;&quot;&gt;move:可被移动&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p17&quot; style=&quot;cursor: pointer;&quot;&gt;pointer&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p18&quot; style=&quot;cursor: help;&quot;&gt;help&lt;/p&gt;</div><div class="line">&lt;p id=&quot;p19&quot; style=&quot;cursor: wait;&quot;&gt;wait:正忙&lt;/p&gt;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2015/03/20/CSS3/用户界面/" data-title="CSS3-03 用户界面" data-url="http://yoursite.com/2015/03/20/CSS3/用户界面/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"Unconsciously"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/CSS3/">CSS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/用户界面/">用户界面</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../视口viewport与响应式布局/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          CSS3-04 视口Viewport与CSS响应式布局
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../../2014/11/16/nodejs/NodeJs02/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">NodeJS02-进阶篇</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#在CSS3中增加了一些新的用户界面特性来跳转元素尺寸、框尺寸和外边框"><span class="toc-number">1.</span> <span class="toc-text">在CSS3中增加了一些新的用户界面特性来跳转元素尺寸、框尺寸和外边框</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 Unconsciously All Rights Reserved.</p>
+	      <p id="copyRightCn">CACAMO 保留所有权利</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+    <a href="../../../../../atom.xml" class="mobile-nav-link">RSS</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+<script src="../../../../../js/bootstrap.js"></script>
+
+
+
+
+  <script src="../../../../../js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Unconsciously
+          </div>
+          <div class="panel-body">
+            Copyright © 2016 CACAMO All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

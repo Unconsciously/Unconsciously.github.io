@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>css页面重构/优化之行高 | Unconsciously</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Unconsciously,前端,设计,前端开发,用户体验,设计,nodejs,JavaScript" />
+  
+  
+  
+  
+  <meta name="description" content="行高：具体来说是指两行文字间基线之间的距离。垂直方向上：vertical-align属性：top,middle,baseline,bottom   
+
+line-height与line boxes：
+有一空div，如果没有设置至少大于1像素高度height值时，该div的高度就是0；如果该div里面写入一个空格或文字，则此div就会有一个高度。那么您思考过没有，为什么div里面有文字后就会有高度呢">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS页面重构/优化之行高">
+<meta property="og:url" content="http://yoursite.com/2015/05/13/页面重构与优化.html/CSS行高line-height和文本、图片的垂直居中/index.html">
+<meta property="og:site_name" content="Unconsciously">
+<meta property="og:description" content="行高：具体来说是指两行文字间基线之间的距离。垂直方向上：vertical-align属性：top,middle,baseline,bottom   
+
+line-height与line boxes：
+有一空div，如果没有设置至少大于1像素高度height值时，该div的高度就是0；如果该div里面写入一个空格或文字，则此div就会有一个高度。那么您思考过没有，为什么div里面有文字后就会有高度呢">
+<meta property="og:image" content="http://image.zhangxinxu.com/image/blog/200911/base_line.jpg">
+<meta property="og:image" content="http://image.zhangxinxu.com/image/blog/200911/2009-11-28_022951.png">
+<meta property="og:updated_time" content="2016-12-06T06:13:45.597Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS页面重构/优化之行高">
+<meta name="twitter:description" content="行高：具体来说是指两行文字间基线之间的距离。垂直方向上：vertical-align属性：top,middle,baseline,bottom   
+
+line-height与line boxes：
+有一空div，如果没有设置至少大于1像素高度height值时，该div的高度就是0；如果该div里面写入一个空格或文字，则此div就会有一个高度。那么您思考过没有，为什么div里面有文字后就会有高度呢">
+<meta name="twitter:image" content="http://image.zhangxinxu.com/image/blog/200911/base_line.jpg">
+  
+  <link rel="icon" href="/css/images/avatar.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../../../../css/style.css">
+
+  <script src="../../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../../../../css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/avatar.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../../../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../about">关于</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../atom.xml">rss</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-页面重构与优化.html/CSS行高line-height和文本、图片的垂直居中" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      CSS页面重构/优化之行高
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2015-05-13T12:30:10.000Z" itemprop="datePublished">2015-05-13</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../../../../categories/CSS页面重构/">CSS页面重构</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="行高：具体来说是指两行文字间基线之间的距离。"><a href="#行高：具体来说是指两行文字间基线之间的距离。" class="headerlink" title="行高：具体来说是指两行文字间基线之间的距离。"></a>行高：具体来说是指两行文字间基线之间的距离。</h4><p>垂直方向上：vertical-align属性：top,middle,baseline,bottom<br><img src="http://image.zhangxinxu.com/image/blog/200911/base_line.jpg" alt="image">   </p>
+<ol>
+<li>line-height与line boxes：<blockquote>
+<p>有一空div，如果没有设置至少大于1像素高度height值时，该div的高度就是0；如果该div里面写入一个空格或文字，则此div就会有一个高度。那么您思考过没有，为什么div里面有文字后就会有高度呢？  </p>
+</blockquote>
+</li>
+</ol>
+<a id="more"></a>
+<p>测试：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">css代码：</div><div class="line">.test1&#123;font-size:20px; line-height:0; border:1px solid #cccccc; background:#eeeeee;&#125;</div><div class="line">.test2&#123;font-size:0; line-height:20px; border:1px solid #cccccc; background:#eeeeee;&#125;</div><div class="line"></div><div class="line">html代码：</div><div class="line">&lt;div class=&quot;test1&quot;&gt;测试&lt;/div&gt;</div><div class="line">&lt;div class=&quot;test2&quot;&gt;测试&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<p>测试结果：div.test1  ：div高度为0;<br>div.test2 ：div高度为lline-height;</p>
+<p><strong>——说明撑开div高度的是line-height，而不是文字内容</strong></p>
+<p>line boxes即包裹每行文字，一行文字一个line boxes，一个没有设置height属性的div的高度就是由一个一个line boxes的高度堆积而成的；line boxes内部的inline boxes(<em>文字、图片、span等inline属性的标签</em>)中谁的实际line-height值最高，line-height就根据其值形成高度</p>
+<ol>
+<li>在单行或多行或图片 垂直居中实现上的应用：行高的垂直居中性：</li>
+</ol>
+<ul>
+<li><strong>单行文字的垂直居中对齐</strong>：<br>  把line-height设置为<del>height一样大小的值</del>您需要的box的大小的值，就可实现单行文字的垂直居中;[这个height是多余的~]</li>
+<li><strong>多行文字的垂直居中对齐</strong>：要实现高度不固定的文字垂直居中使用padding即可；对于高度固定的div，里面文字单行或多行显示，字体大小有大有小的情况，需借助于line-height：<blockquote>
+<p><em>line boxes的高度取决于它的下属职员的最高高度。而这个高度由一个不占据任何空间的空格完成，即 ==对<i>&nbsp;</i>设置font-size为0，line-height为所需要的高度==。同时，我们为了分隔line boxes，同时要保持在一行上，需要 ==设置display属性为inline-block==</em></p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#css代码：修复 IE8问题... ：</div><div class="line">.mulit_line&#123;line-height:150px; border:1px dashed #cccccc; padding-left:5px;&#125;</div><div class="line">.mulit_line span&#123;display:-moz-inline-stack; display:inline-block; line-height:1.4em; vertical-align:middle;&#125;</div><div class="line">.mulit_line i&#123;width:0; display:-moz-inline-stack; display:inline-block; vertical-align:middle; font-size:0;&#125;</div><div class="line"></div><div class="line">#html代码：</div><div class="line">&lt;p class=&quot;mulit_line&quot;&gt;</div><div class="line">    &lt;span style=&quot;font-size:12px;&quot;&gt;这里是高度为150像素的标签内的多行文字，文字大小为12像素。&lt;br /&gt;这里是第二行，用来测试多行的显示效果。&lt;/span&gt;</div><div class="line">    &lt;i&gt;&amp;nbsp;&lt;/i&gt;</div><div class="line">&lt;/p&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>大小不固定图片的垂直居中对齐：</strong>  </p>
+<ol>
+<li>透明gif图片+背景定位的方法：利用background-position:center实现图片居中显示，有益于维护控制成本。<br>原理：使用一个透明的gif图片做覆盖层，高宽拉伸至所需要的大小，再添加一个background- position:center center属性。而background-image建议写在页面上，因为实际项目中，图片地址肯定是个动态的URL地址，css文件似乎不支持动态URL地址；  </li>
+<li><p>display:table-cell和文字大小控制居中： 通过文字大小控制IE下图片垂直居中[低消耗]，即应用IE默认文字空间的概念，该空间是看不见摸不着的，较为抽象；该方法的不足之处为：不支持img外标签的浮动，所以当多图片显示时需要再在外面嵌套一层标签——资源消耗多了！<br>原理：利用font-size大小实现IE下图片垂直居中，将font-size设置得很大，目的是撑开IE下默认文字空间的高度，其性质类似于空格，然后通过vertical-align:middle属性让图片与这个高高的空白空格空间垂直居中对齐；</p>
+</li>
+<li><p>display:inline-block和文字大小控制居中：适用于多图显示，一般而言，图片的外部都有一个起链接作用的a标签，而本方法就只需要这么个a标签来实现图片垂直且居中的显示效果，必须将该a标签默认的inline属性设置为display:inline-block，这样，a标签即支持宽度，又支持vertical-align:middle,配合img的vertical-align:middle即可实现图片的水平居中显示了；<br>注：img标签外可以是a标签或span这类inline属性的标签，div标签也可，但其css代码在IE中，要先转成inline属性，再转变成类似的inline-block属性：display:inline-block;*display:inline; zoom:1;  </p>
+</li>
+<li>透明图片[或高100%宽0的标签i…]拉伸对齐实现垂直居中显示：将要显示的图片与一张高度100%，宽度0像素的透明图片vertical-align:middle对齐。<br>原理：将2中的文字空间实例成一张透明的gif图片，高度可轻松设置为外部标签的高度，宽度压缩至最小，然后通过vertical-align:middle对齐，就实现效果了，并且基本上2中淘宝的table-cell+font-size方法会带来的些问题都避免了，兼容性更好；<br>注：img外容器的宽度要大于显示图片的最大宽度+1像素，且img外容器的字体大小设为0px，也可不设，但是两个img标签要连着写，避免空格；<br>优化：可将透明图片(任意图片均可)换成行内元素，如span、i标签等，只要将css样式设置为==span{display:inline-block; height:100%; width:0; vertical-align:middle;}== 即可，div标签也可以，但是css代码多些:display:inline; display:inline-block，即先变成inline属性，再转变成inline-block属性。如此，就少了一次http请求，效果相同!!!</li>
+<li>font-size + line-height实现垂直居中显示：兼容IE、现代浏览器，但opera浏览器(使用率低)下图片无法垂直居中显示—推!!!!!<br>原理：在IE下使用font-size使图片垂直居中显示，Firefox，chrome等现代浏览器使用line-height配合img本身的vertical-align属性使垂直居中显示，由于两者不冲突，所以没有hack就实现的效果。css代码简洁明了，HTML代码也非常清晰：只一层外标签li+img即可。</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div></pre></td><td class="code"><pre><div class="line">#通用部分代码：清除浮动&amp;&amp;去ul样式</div><div class="line">ul&#123;list-style: none;&#125;</div><div class="line">.fix&#123;zoom: 1;&#125;</div><div class="line">.fix:after,.fix:before&#123;display: table;content:&quot;&quot;;clear: both;&#125;</div><div class="line"></div><div class="line">&lt;!-- 1.透明gif图片+背景定位的方法 --&gt;</div><div class="line">#css部分：</div><div class="line">.align_box_1 li&#123;width:1em; height:1em; padding:0.1em; margin:0 0.1em 0 0; font-size:128px; float:left; border:1px solid #beceeb;&#125;</div><div class="line">.align_box_1 li img&#123;display:block; width:100%; height:100%; background-repeat:no-repeat; background-position:center;&#125;</div><div class="line"></div><div class="line">#HTML部分：</div><div class="line">&lt;ul class=&quot;align_box_1 fix&quot;&gt;</div><div class="line">    &lt;li&gt;</div><div class="line">    	&lt;img src=&quot;../image/pixel.gif&quot; style=&quot;background-image:url(http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg);&quot; /&gt;</div><div class="line">    &lt;/li&gt;</div><div class="line">    &lt;li&gt;</div><div class="line">    	&lt;img src=&quot;../image/pixel.gif&quot; style=&quot;background-image:url(http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg);&quot; /&gt;</div><div class="line">    &lt;/li&gt;</div><div class="line">    &lt;li&gt;</div><div class="line">    	&lt;img src=&quot;../image/pixel.gif&quot; style=&quot;background-image:url(http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg);&quot; /&gt;</div><div class="line">    &lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">&lt;!-- 2.display:table-cell和文字大小控制居中 --&gt;</div><div class="line">#css代码：</div><div class="line">.align_box2 li&#123;float:left; margin-right:13px;&#125;</div><div class="line">.align_box2 li div&#123;display:table-cell; width:144px; height:144px; border:1px solid #beceeb; font-size:118px; text-align:center; vertical-align:middle;&#125;</div><div class="line">.align_box2 li div img&#123;vertical-align:middle;&#125;</div><div class="line"></div><div class="line">#HTML部分:</div><div class="line">&lt;ul class=&quot;align_box2 fix&quot;&gt;</div><div class="line">  &lt;li&gt;&lt;div&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg&quot; /&gt;&lt;/div&gt;&lt;/li&gt;</div><div class="line">  &lt;li&gt;&lt;div&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg&quot; /&gt;&lt;/div&gt;&lt;/li&gt;</div><div class="line">  &lt;li&gt;&lt;div&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg&quot; /&gt;&lt;/div&gt;&lt;/li&gt;</div><div class="line">  &lt;li&gt;&lt;div&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm4.jpg&quot; /&gt;&lt;/div&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line"></div><div class="line">&lt;!-- 3.display:inline-block和文字大小控制居中--&gt;</div><div class="line">#css部分：</div><div class="line">.align_box3 a&#123;display:inline-block; width:1.2em; font-size:128px; text-align:center; vertical-align:middle;&#125;</div><div class="line">.align_box3 a img&#123;vertical-align:middle; padding:2px; border:1px solid #beceeb;&#125;</div><div class="line">#HTML部分：</div><div class="line">&lt;div class=&quot;align_box3 fix&quot;&gt;</div><div class="line">    &lt;a href=&quot;#&quot;&gt;</div><div class="line">        &lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg&quot; /&gt;</div><div class="line">    &lt;/a&gt;</div><div class="line">    &lt;a href=&quot;#&quot;&gt;</div><div class="line">        &lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg&quot; /&gt;</div><div class="line">    &lt;/a&gt;</div><div class="line">    &lt;a href=&quot;#&quot;&gt;</div><div class="line">        &lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg&quot; /&gt;</div><div class="line">    &lt;/a&gt;</div><div class="line">    &lt;a href=&quot;#&quot;&gt;</div><div class="line">        &lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm4.jpg&quot; /&gt;</div><div class="line">    &lt;/a&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;!--4. 透明图片[或高100%宽0的标签i...]拉伸对齐实现垂直居中显示--&gt;</div><div class="line">#css部分：</div><div class="line">.align_box4 li&#123;height:128px; width:150px; padding:13px 0; float:left; margin-right:10px; border:1px solid #beceeb; text-align:center; font-size:0;&#125;</div><div class="line">.align_box4 li .show_img&#123;vertical-align:middle;&#125;</div><div class="line"></div><div class="line">//透明图片：</div><div class="line">.align_box4 li .alpha_img&#123;height:100%; width:1px; vertical-align:middle;&#125;</div><div class="line">//行内标签：</div><div class="line">.align_box4 li .alpha_img&#123;height:100%; vertical-align:middle;display: inline-block;&#125;</div><div class="line"></div><div class="line">#HTML部分：</div><div class="line">&lt;ul class=&quot;align_box4 fix&quot;&gt;</div><div class="line">  &lt;li&gt;</div><div class="line">    &lt;img class=&quot;show_img&quot; src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg&quot; /&gt;</div><div class="line">    &lt;!-- &lt;img class=&quot;alpha_img&quot; src=&quot;./pixel.gif&quot; /&gt; --&gt;</div><div class="line">    &lt;a class=&quot;alpha_img&quot; href=&quot;#&quot;&gt;&lt;/a&gt;</div><div class="line">  &lt;/li&gt;</div><div class="line">  &lt;li&gt;</div><div class="line">    &lt;img class=&quot;show_img&quot; src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg&quot; /&gt;</div><div class="line">    &lt;!-- &lt;img class=&quot;alpha_img&quot; src=&quot;./pixel.gif&quot; /&gt; --&gt;</div><div class="line">    &lt;a class=&quot;alpha_img&quot; href=&quot;#&quot;&gt;&lt;/a&gt;</div><div class="line">  &lt;/li&gt;</div><div class="line">  &lt;li&gt;</div><div class="line">    &lt;img class=&quot;show_img&quot; src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg&quot; /&gt;</div><div class="line">    &lt;!-- &lt;img class=&quot;alpha_img&quot; src=&quot;./pixel.gif&quot; /&gt; --&gt;</div><div class="line">    &lt;a class=&quot;alpha_img&quot; href=&quot;#&quot;&gt;&lt;/a&gt;</div><div class="line">  &lt;/li&gt;</div><div class="line">  &lt;li&gt;</div><div class="line">    &lt;img class=&quot;show_img&quot; src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm4.jpg&quot; /&gt;</div><div class="line">    &lt;!-- &lt;img class=&quot;alpha_img&quot; src=&quot;./pixel.gif&quot; /&gt; --&gt;</div><div class="line">    &lt;a class=&quot;alpha_img&quot; href=&quot;#&quot;&gt;&lt;/a&gt;</div><div class="line">  &lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line"></div><div class="line">&lt;!--5.font-size + line-height实现垂直居中显示 --&gt;</div><div class="line">#css部分：</div><div class="line">.align_box5&#123;overflow:hidden; zoom:1;&#125;</div><div class="line">.align_box5 li&#123;float:left; width:150px; height:150px; text-align:center; line-height:150px; *font-size:125px;&#125;</div><div class="line">.align_box5 li:after&#123;content:&apos; &apos;; vertical-align:middle;&#125;</div><div class="line">.align_box5 li img&#123;vertical-align:middle;&#125;</div><div class="line"></div><div class="line">#HTML部分：</div><div class="line">&lt;ul class=&quot;align_box5&quot;&gt;</div><div class="line">    &lt;li&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg&quot; /&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm2.jpg&quot; /&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm3.jpg&quot; /&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm4.jpg&quot; /&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm5.jpg&quot; /&gt;&lt;/li&gt;</div><div class="line">    &lt;li&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s128/mm6.jpg&quot; /&gt;&lt;/li&gt;  </div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>行高在文章显示中的应用：</strong><blockquote>
+<p>行高的几种表示方法：px/em，或normal，或百分值，或数值，或inherit继承；</p>
+</blockquote>
+</li>
+</ul>
+<p>显示文章的box里，需根据文字大小自动调整间距<del>px</del>，一般文章显示宽度最好650像素，1.5倍行距，而normal值在1-1.2之间<del>normal</del>。</p>
+<ul>
+<li><p>实现文字间距自动适应于文字的大小：</p>
+<ol>
+<li>使用通配符“<em>”来解决出现文字重叠情况，但使用通配符大大增加了css的渲染，效率低：==.article_box </em>{line-height:150%;}==</li>
+<li>使用数值，==.article_box{line-height:1.5;}== 150%与1.5在值上是相同的，但区别在继承上：使用百分比会先计算line-height的值，然后以px为单位继承下去；而1.5则是先继承1.5这个值，遍历到了该标签再计算去line-height的像素值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.article_box *&#123;line-height:150%;&#125;</div><div class="line">.article_box&#123;line-height:1.5;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><strong>使用行高代替高度，避免haslayout</strong>：行高与高度的css属性有一个较为隐蔽的差异，即使用height会使标签haslayout，而使用line-height则不会。<br><img src="http://image.zhangxinxu.com/image/blog/200911/2009-11-28_022951.png" alt="image"><br>上图中第一个标签使用height定高，结果宽度直接100%显示；第二个标签使用line-height定高，结果很规矩，自适应与内部文字大小。其代码如下：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#css部分：</div><div class="line">.out&#123;display:inline-block; background:#a0b3d6; margin-top:20px;&#125;</div><div class="line">.in1&#123;display:block; height:20px;&#125;</div><div class="line">.in2&#123;display:block; line-height:20px;&#125;</div><div class="line"></div><div class="line">#html部分：</div><div class="line">&lt;span class=&quot;out&quot;&gt;</div><div class="line">    &lt;span class=&quot;in1&quot;&gt;height:20px;&lt;/span&gt;</div><div class="line">&lt;/span&gt;</div><div class="line">&lt;span class=&quot;out&quot;&gt;</div><div class="line">    &lt;span class=&quot;in2&quot;&gt;line-height:20px;&lt;/span&gt;</div><div class="line">&lt;/span&gt;</div></pre></td></tr></table></figure>
+<p>补充：hasLayout：摘自《精通CSS 高级Web标准解决方案》</p>
+<p>IE使用Layout概念来控制元素的尺寸和位置。如果一个元素有Layout，它就有自身的尺寸和位置；如果没有，它的尺寸和位置由最近的拥有布局的祖先元素控制。</p>
+<p>hasLayout是IE特有的属性，不是CSS属性。可以用Javascript函数hasLayout查看一个元素是否拥有Layout。如果有，这个函数就返回true；否则返回false。hasLayout是一个只读属性，所以无法使用Javascript进行设置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#默认情况下，用于Layout的元素：</div><div class="line">&lt;html&gt;, &lt;body&gt;</div><div class="line">&lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;</div><div class="line">&lt;img&gt;</div><div class="line">&lt;hr&gt;</div><div class="line">&lt;input&gt;, &lt;button&gt;, &lt;select&gt;, &lt;textarea&gt;, &lt;fieldset&gt;, &lt;legend&gt;</div><div class="line">&lt;iframe&gt;, &lt;embed&gt;, &lt;object&gt;, &lt;applet&gt;</div><div class="line">&lt;marquee&gt;</div><div class="line">注：&lt;p&gt;和&lt;div&gt;默认不拥有Layout</div><div class="line"></div><div class="line">#凡是具有以下CSS属性的元素，也都拥有Layout：</div><div class="line">position: absolute</div><div class="line">float: left|right</div><div class="line">display: inline-block</div><div class="line">width: any value other than &apos;auto&apos;</div><div class="line">height: any value other than &apos;auto&apos;</div><div class="line">zoom: any value other than &apos;normal&apos; （IE专用属性）</div><div class="line">writing-mode: tb-rl（IE专用属性）</div><div class="line">overflow: hidden|scroll|auto（只对IE 7及以上版本有效）</div><div class="line">overflow-x|-y: hidden|scroll|auto（只对IE 7及以上版本有效）</div></pre></td></tr></table></figure>
+<p>参考：<br><a href="http://www.zhangxinxu.com/wordpress/2009/08/%E5%A4%A7%E5%B0%8F%E4%B8%8D%E5%9B%BA%E5%AE%9A%E7%9A%84%E5%9B%BE%E7%89%87%E3%80%81%E5%A4%9A%E8%A1%8C%E6%96%87%E5%AD%97%E7%9A%84%E6%B0%B4%E5%B9%B3%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/" target="_blank" rel="external">张鑫旭-鑫空间-鑫生活:大小不固定的图片、多行文字的水平垂直居中</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2015/05/13/页面重构与优化.html/CSS行高line-height和文本、图片的垂直居中/" data-title="CSS页面重构/优化之行高" data-url="http://yoursite.com/2015/05/13/页面重构与优化.html/CSS行高line-height和文本、图片的垂直居中/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"Unconsciously"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/CSS页面优化/">CSS页面优化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/line-height/">line-height</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../../07/17/CSS3/精彩绝伦的CSS3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          CSS3-01 背景和边框相关属性
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../03/21/CSS3/多列布局/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">CSS3-05 多列布局</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#行高：具体来说是指两行文字间基线之间的距离。"><span class="toc-number">1.</span> <span class="toc-text">行高：具体来说是指两行文字间基线之间的距离。</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 Unconsciously All Rights Reserved.</p>
+	      <p id="copyRightCn">CACAMO 保留所有权利</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+    <a href="../../../../../atom.xml" class="mobile-nav-link">RSS</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+<script src="../../../../../js/bootstrap.js"></script>
+
+
+
+
+  <script src="../../../../../js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Unconsciously
+          </div>
+          <div class="panel-body">
+            Copyright © 2016 CACAMO All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

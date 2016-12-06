@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>css3-01 背景和边框相关属性 | Unconsciously</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Unconsciously,前端,设计,前端开发,用户体验,设计,nodejs,JavaScript" />
+  
+  
+  
+  
+  <meta name="description" content="背景和边框CSS绘制各种集合图形CSS绘制26个英文字母
+背景和边框：
+border-radius：创建圆角：
+
+四个值: 第一个值为左上角，第二个值为右上角，第三个值为右下角，第四个值为左下角。
+三个值: 第一个值为左上角, 第二个值为右上角和左下角，第三个值为右下角
+两个值: 第一个值为左上角与右下角，第二个值为右上角与左下角
+一个值： 四个圆角值相同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS3-01 背景和边框相关属性">
+<meta property="og:url" content="http://yoursite.com/2015/07/17/CSS3/精彩绝伦的CSS3/index.html">
+<meta property="og:site_name" content="Unconsciously">
+<meta property="og:description" content="背景和边框CSS绘制各种集合图形CSS绘制26个英文字母
+背景和边框：
+border-radius：创建圆角：
+
+四个值: 第一个值为左上角，第二个值为右上角，第三个值为右下角，第四个值为左下角。
+三个值: 第一个值为左上角, 第二个值为右上角和左下角，第三个值为右下角
+两个值: 第一个值为左上角与右下角，第二个值为右上角与左下角
+一个值： 四个圆角值相同">
+<meta property="og:updated_time" content="2016-12-06T06:15:59.092Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS3-01 背景和边框相关属性">
+<meta name="twitter:description" content="背景和边框CSS绘制各种集合图形CSS绘制26个英文字母
+背景和边框：
+border-radius：创建圆角：
+
+四个值: 第一个值为左上角，第二个值为右上角，第三个值为右下角，第四个值为左下角。
+三个值: 第一个值为左上角, 第二个值为右上角和左下角，第三个值为右下角
+两个值: 第一个值为左上角与右下角，第二个值为右上角与左下角
+一个值： 四个圆角值相同">
+  
+  <link rel="icon" href="/css/images/avatar.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../../../../css/style.css">
+
+  <script src="../../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../../../../css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/avatar.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../../../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../about">关于</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../atom.xml">rss</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-CSS3/精彩绝伦的CSS3" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      CSS3-01 背景和边框相关属性
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2015-07-17T00:30:10.000Z" itemprop="datePublished">2015-07-17</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../../../../categories/CSS3/">CSS3</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="背景和边框"><a href="#背景和边框" class="headerlink" title="背景和边框"></a>背景和边框</h4><p><a href="http://www.jb51.net/css/41448.html" target="_blank" rel="external">CSS绘制各种集合图形</a><br><a href="http://www.webhek.com/css-sans" target="_blank" rel="external">CSS绘制26个英文字母</a></p>
+<h4 id="背景和边框："><a href="#背景和边框：" class="headerlink" title="背景和边框："></a>背景和边框：</h4><ul>
+<li><p>border-radius：创建圆角：</p>
+<ul>
+<li>四个值: 第一个值为左上角，第二个值为右上角，第三个值为右下角，第四个值为左下角。</li>
+<li>三个值: 第一个值为左上角, 第二个值为右上角和左下角，第三个值为右下角</li>
+<li>两个值: 第一个值为左上角与右下角，第二个值为右上角与左下角</li>
+<li><p>一个值： 四个圆角值相同  </p>
+<a id="more"></a>  
+</li>
+</ul>
+</li>
+<li><p>box-shadow：盒阴影：第一个值表示在x轴上的投影尺寸，正值表示向右投影，负值表示向左投影；第二个值表示在y轴上的投影尺寸，正值表示向下投影，负值表示向上投影；第三个值表示阴影渲染的范围。数值越大，阴影越淡；第四个值表示阴影的颜色</p>
+</li>
+<li>background-origin：设置图片展示的起始位置：可以从边框border-box、内边距padding-box、content的左上角content-box 开始渲染图片。从渲染起始位置开始展示图片，一直到图片展示结束位置位置，如果没有关闭平铺，则空白位置平铺填满，如果关闭了平铺，则空白保留</li>
+<li>background-size：指定背景图片大小：相对于父元素的宽度和高度的百分比的大小</li>
+<li>background-clip：背景剪裁属性：从指定位置开始绘制，边框border-box、内边距padding-box、content的左上角content-box</li>
+<li><p>background：background-image background-position(右下左上) background-repeat</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">       //border-radius: 10px 20px 30px 40px;</div><div class="line"></div><div class="line">   //绘制吃豆豆</div><div class="line">   border-top: 100px solid black;</div><div class="line">   border-right: 100px solid transparent;</div><div class="line">   border-bottom: 100px solid yellow;</div><div class="line">   border-left: 100px solid green;</div><div class="line">   border-radius: 50%;</div><div class="line"></div><div class="line">   //box-shadow: x y r color;</div><div class="line">   //叠加渲染：加深颜色</div><div class="line">   box-shadow: 10px 10px 20px gray,</div><div class="line">               5px 5px 10px gray,</div><div class="line">   	    10px 10px 15px gray,</div><div class="line">   	    15px 15px 20px gray;</div><div class="line">   //边框阴影的渲染位置：inset表示向边框以内渲染，outset表示向边框以外渲染</div><div class="line">   box-shadow: 10px -10px 20px gray inset;</div><div class="line"></div><div class="line">   //文字阴影：</div><div class="line">   text-shadow: 0px 0px 1px red,</div><div class="line">         0px 0px 3px red,</div><div class="line">	 0px 0px 6px red;</div><div class="line">color: #fff;</div><div class="line"></div><div class="line">//为了保证缩放后图片不变形，只把表示背景图片的宽度设置为指定的值，而高度会缩放成对应的尺寸</div><div class="line">   background-size:100%;</div><div class="line">   background-origin: content-box;</div><div class="line">   background-clip: content-box;</div><div class="line"></div><div class="line">   background: url(img_flwr.gif) right bottom no-repeat, url(paper.gif) left top repeat;</div></pre></td></tr></table></figure>
+</li>
+<li><p>CSS3渐变(gradients)：必须使用图像来实现这些效果:在2个或多个指定颜色之间显示平稳过度</p>
+<ul>
+<li>线性渐变（Linear Gradients）- 向下/向上/向左/向右/对角方向(默认从上到下)</li>
+<li>径向渐变（Radial Gradients）- 由它们的中心定义：指定渐变的中心、形状（原型或椭圆形）、大小。默认情况下，渐变的中心是 center（表示在中心点），渐变的形状是 ellipse（表示椭圆形），渐变的大小是 farthest-corner（表示到最远的角落）</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">//线性渐变：background: linear-gradient(direction, color-stop1, color-stop2, ...);</div><div class="line">//线性渐变 - 从上到下</div><div class="line">background: linear-gradient(red, green, blue);</div><div class="line">//线性渐变 - 从左到右</div><div class="line">background: linear-gradient(to right, red , blue);</div><div class="line">//线性渐变 - 对角</div><div class="line">background: linear-gradient(to bottom right, red , blue);</div><div class="line">//线性渐变：使用角度 background: linear-gradient(angle, color-stop1, color-stop2);</div><div class="line">//180deg:上-下 90deg:左-右</div><div class="line">background: linear-gradient(180deg, red, blue);</div><div class="line">//线性渐变 - 使用透明度：减弱变淡的效果 0-完全透明 1-完全不透明</div><div class="line">background: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));</div><div class="line">//线性渐变 - 重复的线性渐变</div><div class="line">background: repeating-linear-gradient(red, yellow 10%, green 20%);</div><div class="line"></div><div class="line">//径向渐变：background: radial-gradient(center, shape size, start-color, ..., last-color);</div><div class="line"></div><div class="line">//径向渐变 - 颜色结点均匀分布（默认情况下）</div><div class="line">background: radial-gradient(red, green, blue);</div><div class="line">//径向渐变 - 颜色结点不均匀分布</div><div class="line">background: radial-gradient(red 5%, green 15%, blue 60%);</div><div class="line">//径向渐变 - 设置形状：circle||ellipse(默认)</div><div class="line">background: radial-gradient(circle, red, yellow, green);</div><div class="line">//径向渐变 - 不同尺寸大小：closest-side||farthest-side||closest-corner||farthest-corner</div><div class="line">background: radial-gradient(60% 55%, closest-side,blue,green,yellow,black);</div><div class="line">//径向渐变 - 重复的径向渐变</div><div class="line">background: repeating-radial-gradient(red, yellow 10%, green 15%);</div><div class="line"></div><div class="line">//彩虹条</div><div class="line">background: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);</div></pre></td></tr></table></figure>
+<ul>
+<li>text-shadow：x, y, blur, color    其中，blur为模糊的距离 color为阴影颜色，text-shadow属性连接一个或更多的阴影文本。属性是阴影，指定的每2或3个长度值和一个可选的颜色值用逗号分隔开来。已失时效的长度为0</li>
+<li>word-wrap：英文单词换行：normal || break-word 强制换行</li>
+<li>框模型box-sizing：box-sizing: content-box(元素宽高只含content)|border-box(元素宽高还含border和padding)|inherit(继承于父元素);</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//text-shadow: h-shadow v-shadow blur color;  </div><div class="line">text-shadow:0 0 3px #FF0000;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2015/07/17/CSS3/精彩绝伦的CSS3/" data-title="CSS3-01 背景和边框相关属性" data-url="http://yoursite.com/2015/07/17/CSS3/精彩绝伦的CSS3/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"Unconsciously"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/CSS3/">CSS3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/border/">border</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../CSS3动画效果/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          CSS3-02 动画
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../05/13/页面重构与优化.html/CSS行高line-height和文本、图片的垂直居中/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">CSS页面重构/优化之行高</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#背景和边框"><span class="toc-number">1.</span> <span class="toc-text">背景和边框</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#背景和边框："><span class="toc-number">2.</span> <span class="toc-text">背景和边框：</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 Unconsciously All Rights Reserved.</p>
+	      <p id="copyRightCn">CACAMO 保留所有权利</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+    <a href="../../../../../atom.xml" class="mobile-nav-link">RSS</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+<script src="../../../../../js/bootstrap.js"></script>
+
+
+
+
+  <script src="../../../../../js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Unconsciously
+          </div>
+          <div class="panel-body">
+            Copyright © 2016 CACAMO All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

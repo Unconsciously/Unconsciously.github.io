@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>nodejs01-入门篇 | Unconsciously</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Unconsciously,前端,设计,前端开发,用户体验,设计,nodejs,JavaScript" />
+  
+  
+  
+  
+  <meta name="description" content="NodeJs入门：Node.js 历史版本下载地址：https://nodejs.org/dist/注意：Linux上安装Node.js需要安装Python 2.6 或 2.7 ，不建议安装Python 3.0以上版本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeJS01-入门篇">
+<meta property="og:url" content="http://yoursite.com/2014/11/15/nodejs/Nodejs01/index.html">
+<meta property="og:site_name" content="Unconsciously">
+<meta property="og:description" content="NodeJs入门：Node.js 历史版本下载地址：https://nodejs.org/dist/注意：Linux上安装Node.js需要安装Python 2.6 或 2.7 ，不建议安装Python 3.0以上版本">
+<meta property="og:updated_time" content="2016-12-06T05:58:33.032Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NodeJS01-入门篇">
+<meta name="twitter:description" content="NodeJs入门：Node.js 历史版本下载地址：https://nodejs.org/dist/注意：Linux上安装Node.js需要安装Python 2.6 或 2.7 ，不建议安装Python 3.0以上版本">
+  
+  <link rel="icon" href="/css/images/avatar.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../../../../css/style.css">
+
+  <script src="../../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../../../../css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/avatar.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../../../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../about">关于</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../atom.xml">rss</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-nodejs/Nodejs01" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      NodeJS01-入门篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2014-11-15T11:30:10.000Z" itemprop="datePublished">2014-11-15</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../../../../categories/NodeJS/">NodeJS</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="NodeJs入门："><a href="#NodeJs入门：" class="headerlink" title="NodeJs入门："></a>NodeJs入门：</h4><p><em>Node.js 历史版本下载地址：<br><a href="https://nodejs.org/dist/" target="_blank" rel="external">https://nodejs.org/dist/</a><br>注意：Linux上安装Node.js需要安装Python 2.6 或 2.7 ，不建议安装Python 3.0以上版本</em></p>
+<a id="more"></a>
+<h4 id="检测PATH环境变量是否配置了Node-js："><a href="#检测PATH环境变量是否配置了Node-js：" class="headerlink" title="检测PATH环境变量是否配置了Node.js："></a>检测PATH环境变量是否配置了Node.js：</h4><p>NPM是随同NodeJS一起安装的包管理工具</p>
+<p>打印PATH、 nodejs版本号、 npm版本号：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ path</div><div class="line">    C:\Program Files\nodejs\</div><div class="line">$ node -v</div><div class="line">$ npm -v</div><div class="line"></div><div class="line">$ npm install npm -g    #升级npm</div></pre></td></tr></table></figure></p>
+<p>交互模式:<br>打开终端，键入node进入命令交互模式：js代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ node</div><div class="line">&gt;console.log(&quot;hello&quot;);//hello</div></pre></td></tr></table></figure></p>
+<p>Nodejs应用由那几部分组成：</p>
+<ol>
+<li>引入require模块 载入Node.js模块</li>
+<li>创建服务器 服务器可监听客户端请求</li>
+<li>接受请求与响应 req  res</li>
+</ol>
+<h4 id="HTTP服务器"><a href="#HTTP服务器" class="headerlink" title="HTTP服务器:"></a>HTTP服务器:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">server.js：</div><div class="line"></div><div class="line">//载入 http 模块，并将实例化的 HTTP 赋值给变量 http</div><div class="line">var http = require(&quot;http&quot;);</div><div class="line"></div><div class="line">//使用 http.createServer() 方法创建服务器，并使用 listen 方法监听(绑定)8888端口</div><div class="line">http.createServer(function(req, res)&#123;</div><div class="line">    console.log(req.url);</div><div class="line"></div><div class="line">    //设置头部</div><div class="line">    res.setHeader(&apos;content-type&apos;, &apos;text/html;charset=utf-8;&apos;);</div><div class="line"></div><div class="line">    //一直在加载中：请求一直在进行-数据发送之后要立即断掉end</div><div class="line">    res.write(&apos;欢迎访问welcom~&apos;);</div><div class="line">    res.end(&apos;end也可以向前端发生字符的~&apos;);</div><div class="line"></div><div class="line"></div><div class="line">&#125;).listen(8888,function()&#123;</div><div class="line">    console.log(&quot;服务已启动&quot;);</div><div class="line">&#125;)</div><div class="line"></div><div class="line">$node server.js</div><div class="line">服务已启动</div><div class="line">Server running at http://127.0.0.1:8888/</div><div class="line"></div><div class="line">//然后，打开浏览器访问 http://127.0.0.1:8888/，你会看到一个写着 &quot;欢迎访问welcom~end也可以向前端发生字符的~ &quot;的网页</div></pre></td></tr></table></figure>
+<h4 id="使用npm命令安装模块"><a href="#使用npm命令安装模块" class="headerlink" title="使用npm命令安装模块"></a>使用npm命令安装模块</h4><pre><code>使用npm安装好的模块都放在工程目录下的node_modules目录中，只需require(&apos;express&apos;)即可引入，无需指定第三方包路径
+</code></pre><p> 本地安装</p>
+<ol>
+<li>将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录</li>
+<li>然后通过 require() 来引入本地安装的包。</li>
+</ol>
+<p>全局安装</p>
+<ol>
+<li>将安装包放在 /usr/local 下或者你 node 的安装目录</li>
+<li>可以直接在命令行里使用。<br>如果你希望具备两者功能，则需要在两个地方安装它或使用 npm link。  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$ npm install &lt;Module Name&gt;</div><div class="line"></div><div class="line">npm install express     #本地安装local</div><div class="line">npm install express -g   #全局安装global</div><div class="line"></div><div class="line">npm err! Error: connect ECONNREFUSED 127.0.0.1:8087   #该错误解决办法：</div><div class="line">$ npm config set proxy null</div><div class="line"></div><div class="line">$ npm ls -g  #查看所有全局安装的模块</div><div class="line">$ npm uninstall express  #卸载包</div><div class="line">$ npm ls  #查看 /node_modules/ 目录下 包是否还存在</div><div class="line">$ npm update express  #更新模块</div><div class="line">$ npm search express  #搜索模块</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="创建发布模块"><a href="#创建发布模块" class="headerlink" title="创建发布模块"></a>创建发布模块</h4><p>package.json 位于模块的目录下，用于定义包的属性。创建模块，package.json文件是必不可少的，可使用NPM生成package.json文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm init #根据自己的情况输入--&gt; yes --&gt; 生成package.json文件</div></pre></td></tr></table></figure>
+<p>可使用命令行在 npm 资源库中注册用户（使用邮箱注册）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ npm adduser</div><div class="line">Username: cocoma</div><div class="line">Password: 111111</div><div class="line">Email: (this IS public) cocoma@gmail.com</div></pre></td></tr></table></figure>
+<p>发布模块后，即可使用npm安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm publish</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2014/11/15/nodejs/Nodejs01/" data-title="NodeJS01-入门篇" data-url="http://yoursite.com/2014/11/15/nodejs/Nodejs01/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"Unconsciously"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/NodeJs/">NodeJs</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../16/nodejs/NodeJs02/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          NodeJS02-进阶篇
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../09/15/JavaScript设计模式/Observer-Pattern/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">订阅者</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#NodeJs入门："><span class="toc-number">1.</span> <span class="toc-text">NodeJs入门：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#检测PATH环境变量是否配置了Node-js："><span class="toc-number">2.</span> <span class="toc-text">检测PATH环境变量是否配置了Node.js：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTTP服务器"><span class="toc-number">3.</span> <span class="toc-text">HTTP服务器:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用npm命令安装模块"><span class="toc-number">4.</span> <span class="toc-text">使用npm命令安装模块</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建发布模块"><span class="toc-number">5.</span> <span class="toc-text">创建发布模块</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 Unconsciously All Rights Reserved.</p>
+	      <p id="copyRightCn">CACAMO 保留所有权利</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+    <a href="../../../../../atom.xml" class="mobile-nav-link">RSS</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+<script src="../../../../../js/bootstrap.js"></script>
+
+
+
+
+  <script src="../../../../../js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Unconsciously
+          </div>
+          <div class="panel-body">
+            Copyright © 2016 CACAMO All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

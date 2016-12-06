@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>html5之audio/video | Unconsciously</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Unconsciously,前端,设计,前端开发,用户体验,设计,nodejs,JavaScript" />
+  
+  
+  
+  
+  <meta name="description" content="HTML5新增了2个与媒体相关的标签video与audio，在网页中可嵌入跨浏览器的音频和视频内容，但不被IE8支持。位于媒体标签开闭之间的任何内容都将作为替补内容，当浏览器不支持这两个媒体元素时显示。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Html5之audio/video">
+<meta property="og:url" content="http://yoursite.com/2014/07/11/Html5/Html5之标签/index.html">
+<meta property="og:site_name" content="Unconsciously">
+<meta property="og:description" content="HTML5新增了2个与媒体相关的标签video与audio，在网页中可嵌入跨浏览器的音频和视频内容，但不被IE8支持。位于媒体标签开闭之间的任何内容都将作为替补内容，当浏览器不支持这两个媒体元素时显示。">
+<meta property="og:updated_time" content="2016-12-06T06:10:45.425Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Html5之audio/video">
+<meta name="twitter:description" content="HTML5新增了2个与媒体相关的标签video与audio，在网页中可嵌入跨浏览器的音频和视频内容，但不被IE8支持。位于媒体标签开闭之间的任何内容都将作为替补内容，当浏览器不支持这两个媒体元素时显示。">
+  
+  <link rel="icon" href="/css/images/avatar.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../../../../css/style.css">
+
+  <script src="../../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../../../../css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/avatar.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../../../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../about">关于</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../atom.xml">rss</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Html5/Html5之标签" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Html5之audio/video
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2014-07-11T11:30:10.000Z" itemprop="datePublished">2014-07-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../../../../categories/Html5/">Html5</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>HTML5新增了2个与媒体相关的标签video与audio，在网页中可嵌入跨浏览器的音频和视频内容，但不被IE8支持。位于媒体标签开闭之间的任何内容都将作为替补内容，当浏览器不支持这两个媒体元素时显示。<br><a id="more"></a>  </p>
+</blockquote>
+<ol>
+<li>audio、video基本用法：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">autoplay         自动播放：true音视频加载完毕后立即播放/false(默认)加载完后不立即播放</div><div class="line">controls         显示控件：true/false(默认)显示/不显示标准的音视频控件</div><div class="line">loop             循环播放</div><div class="line">preload          音频在页面加载时进行加载，并预备播放(若使用autoplay,则忽略该属性)</div><div class="line">src              要播放的音视频的URL:绝对URL/相对URL</div><div class="line">height         　　　播放器(video)高度</div><div class="line">width         　　　 播放器(video)宽度</div><div class="line">loop                循环播放[true/false默认]</div><div class="line">preload        视频在页面加载时进行加载，并预备播放(若使用autoplay,则忽略该属性)</div><div class="line">preload=&quot;none&quot;//当页面加载后不载入视频</div><div class="line">preload=&quot;auto&quot;//当页面加载后载入整个视频</div><div class="line">preload=&quot;meta&quot;//当页面加载后只载入元数据</div><div class="line">poster        　　　 给视频(video)添加默认显示图片，即规定视频下载时显示的图像，或者在用户点击播放按钮前显示的图像  </div><div class="line"></div><div class="line"></div><div class="line">&lt;audio controls autoplay loop muted src=&quot;song.mp3&quot;&gt;</div><div class="line"> //&lt;source src=&quot;song.mp3&quot; type=&quot;audio/mp3&quot; /&gt;</div><div class="line">  &lt;source src=&quot;song.ogg&quot; type=&quot;audio/ogg&quot;&gt;</div><div class="line">   &lt;source src=&quot;song.ogg&quot; type=&quot;audio/vorbis&quot;&gt;</div><div class="line">  该浏览器不支持audio标签</div><div class="line">&lt;/audio&gt;</div><div class="line"></div><div class="line"># 可指定多个不同的媒体来源，确保浏览器的支持</div><div class="line">&lt;video width=&quot;300&quot; height=&quot;200&quot; poster=&quot;test.jpg&quot; controls&gt;</div><div class="line">    &lt;source src=&quot;source/终结者_Larry.MP4&quot; type=&quot;audio/mp4&quot;&gt;</div><div class="line">    &lt;source src=&quot;source/终结者_Larry.webm&quot; type=&quot;video/webm; codecs=&apos;vp8,vorbis&apos;&quot;&gt;</div><div class="line">    &lt;source src=&quot;source/终结者_Larry.ogg&quot; type=&quot;video/ogg; codecs=&apos;theora,vorbis&apos;&quot;&gt;</div><div class="line">		该浏览器不支持video标签</div><div class="line">&lt;/video&gt;</div><div class="line"></div><div class="line"># 并非所有浏览器均支持audio与video，所以备选内容为：</div><div class="line">&lt;audio controls=&quot;controls&quot; height=&quot;100&quot; width=&quot;100&quot;&gt;</div><div class="line">    &lt;source src=&quot;song.mp3&quot; type=&quot;audio/mp3&quot; /&gt;</div><div class="line">    &lt;embed height=&quot;100&quot; width=&quot;100&quot; src=&quot;song.mp3&quot; /&gt;</div><div class="line">&lt;/audio&gt;</div><div class="line"></div><div class="line">&lt;video width=&quot;320&quot; height=&quot;240&quot; controls=&quot;controls&quot;&gt;</div><div class="line">  &lt;source src=&quot;movie.mp4&quot; type=&quot;video/mp4&quot; /&gt;</div><div class="line">  &lt;object data=&quot;movie.mp4&quot; width=&quot;320&quot; height=&quot;240&quot;&gt;</div><div class="line">    &lt;embed src=&quot;movie.mp4&quot; width=&quot;320&quot; height=&quot;240&quot; /&gt;</div><div class="line">  &lt;/object&gt;</div><div class="line">&lt;/video&gt;</div><div class="line"></div><div class="line"># 若浏览器不支持，可用flash代替：</div><div class="line">&lt;video src=&quot;movie.mp4&quot; controls&gt;</div><div class="line">  &lt;object data=&quot;movie.swf&quot; type=&quot;application/x-shockwave-flash&quot;&gt;</div><div class="line">    &lt;param name=&quot;movie&quot; value=&quot;vodeo.swf&quot;/&gt;</div><div class="line">  &lt;/object&gt;</div><div class="line">  浏览器不支持该视频标签</div><div class="line">&lt;/video&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>两者支持的方法、属性、事件基本相同：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div></pre></td><td class="code"><pre><div class="line">- 方法：</div><div class="line">-1:canPlayType()：检测浏览器是否能播放指定的音频或视频类型；</div><div class="line">返回值：  </div><div class="line">&apos;probable&apos;:浏览器最可能支持该类型</div><div class="line">&apos;maybe&apos;:浏览器也许支持该类型</div><div class="line">&apos;&apos;:浏览器不支持该类型</div><div class="line">console.log(audio.canPlayType(&apos;video/ogg;codecs=&quot;theora,vorbis&quot;&apos;));</div><div class="line"></div><div class="line">-2:load()：重新加载音频或视频元素，用于在更改src来源或其他设置后对音频或视频元素进行更新；</div><div class="line">audio.load();</div><div class="line"></div><div class="line">-3:play()开始/pause()停止当前播放的音视频:</div><div class="line">if (video.paused) &#123;</div><div class="line">	video.play();</div><div class="line">&#125;else&#123;</div><div class="line">    video.pause();</div><div class="line">&#125;</div><div class="line">-4：requestFullscreen()视频需要兼容：</div><div class="line">webkitRequestFullScreen()</div><div class="line">mozRequestFullScreen()</div><div class="line"></div><div class="line">- 属性：</div><div class="line">属性：[注意]所有属性中，只有videoWidth和videoHeight是立即可用的，在音视频的元数据加载后，其他属性才可用 ；</div><div class="line">-------------------------</div><div class="line">&lt;只读&gt;</div><div class="line">-1：buffered：获取缓冲时间</div><div class="line">buffered.length//获取已缓冲范围的数量</div><div class="line">buffered.start(index)//获取某个已缓冲范围的开始位置</div><div class="line">buffered.end(index)//获取某个已缓冲范围的结束位置</div><div class="line">buffered.end(0)//获取当前已缓冲的秒数</div><div class="line">alert(audio.buffered.end(0));</div><div class="line"></div><div class="line">-2：currentSrc：返回当前音频或视频的URL</div><div class="line">console.log(audio.currentSrc);</div><div class="line">-3：ended(只读)：返回音频或视频是否播放完毕</div><div class="line">true:播放完毕</div><div class="line">false:尚未结束</div><div class="line">console.log(audio.ended);</div><div class="line">-4：duration：返回当前音频或视频的长度(以秒计)，如果未设置则返回NaN</div><div class="line">setTimeout(function()&#123;</div><div class="line">    console.log(audio.duration);</div><div class="line">&#125;,1000);</div><div class="line"></div><div class="line">-5：networkState：返回音频或视频当前网络状态</div><div class="line">networkState:0(尚未初始化)</div><div class="line">networkState:1(已选取资源，但并未使用网络)</div><div class="line">networkState:2(正在下载数据)</div><div class="line">networkState:3(未找到资源来源)</div><div class="line">console.log(audio.networkState)</div><div class="line"></div><div class="line">-6：paused(只读)：返回音频或视频是否已暂停</div><div class="line">paused:true;(已暂停)</div><div class="line">paused:false;(未暂停)</div><div class="line">console.log(audio.paused);</div><div class="line">-7：played：已播范围是指音频或视频的时间范围。如果用户在音频或视频中跳跃，会获得多个播放范围  </div><div class="line">played.length(获得音频或视频已播放范围的数量)</div><div class="line">played.start(index)(获得某个已播范围的开始位置)</div><div class="line">played.end(index)(获得某个已播范围的结束位置)</div><div class="line">[注意]首段已播范围的下标是0</div><div class="line">console.log(audio.played.end(0));</div><div class="line"></div><div class="line">-8：readyState：返回音频或视频的当前就绪状态</div><div class="line">readyState:0(没有关于音频或视频是否就绪的信息)</div><div class="line">readyState:1(关于音频或视频就绪的元数据)</div><div class="line">readyState:2(关于当前播放位置的数据是可用的，但没有足够的数据来播放下一帧)</div><div class="line">readyState:3(当前及至少下一帧的数据是可用的)</div><div class="line">readyState:4(可用数据足以开始播放)</div><div class="line">console.log(audio.readyState);</div><div class="line"></div><div class="line">-9：seekable：返回可寻址范围(TimeRanges对象)，可寻址范围是指用户在视频或音频中可寻址(移动播放位置)的时间范围。对于流视频，通常可以寻址到视频中的任何位置，即使其尚未完成缓冲</div><div class="line">TimeRanges对象的属性：注：第一个可寻址的下标是index 0</div><div class="line">seekable.length(获得音频或视频中可寻址范围的数量)</div><div class="line">seekable.start(index)(获得可寻址范围的开始位置)</div><div class="line">seekable.end(index)(获得可寻址范围的结束位置)</div><div class="line">console.log(audio.seekable.end(0));</div><div class="line">-10：seeking：</div><div class="line">seeking:true(用户正在寻址)</div><div class="line">seeking:false(用户没有在寻址)</div><div class="line">console.log(audio.seeking);</div><div class="line"></div><div class="line">-------------------------------------</div><div class="line">&lt;可读写&gt;</div><div class="line">-0：width(video)/height(video)/poster(video)给视频添加默认显示图片</div><div class="line">-1：autoplay：</div><div class="line">autoplay:false(默认，不自动播放)</div><div class="line">autoplay:true(自动播放)</div><div class="line">-2：controls：</div><div class="line">controls:false(默认，不显示控件)</div><div class="line">controls:true(显示控件)</div><div class="line">-3：crossOrigin：设置或返回CORS设置</div><div class="line">-4：currentTime：设置或返回音频或视频的当前位置(以秒计)</div><div class="line">console.log(audio.currentTime);</div><div class="line">-5：defaultMuted(只有chrome支持)：设置或返回音/视频是否默认[初始]静音状态：</div><div class="line">[注意]：该该属性只会改变初始是否静音状态，而不是当前状态，若要改变当前是否静音状态，用muted属性</div><div class="line">defaultMuted:true(初始静音)</div><div class="line">defaultMuted:false(默认，初始不静音)</div><div class="line">audio.defaultMuted = true;</div><div class="line">-6：muted：当前</div><div class="line">muted:true(静音)</div><div class="line">muted:false(不静音)</div><div class="line">audio.muted = !audio.muted</div><div class="line">-7：</div><div class="line">defaultPlaybackRate(只有chrome支持)：设置或返回音/视频的默认播放速度</div><div class="line">[注意]该属性只改变默认的播放速度，非当前播放速度-playbackRate属性</div><div class="line">defaultPlaybackRate:1.0(正常速度，默认值)</div><div class="line">defaultPlaybackRate:0.5(半速)</div><div class="line">defaultPlaybackRate:2(倍速)</div><div class="line">defaultPlaybackRate:-1(向后正常速度)</div><div class="line">defaultPlaybackRate:-0.5(向后半速)</div><div class="line"></div><div class="line">playbackRate：当前</div><div class="line">playbackRate:1(正常速度，默认值)</div><div class="line">playbackRate:0.5(半速)</div><div class="line">playbackRate:2(倍速)</div><div class="line">playbackRate:-1(向后正常速度)</div><div class="line">playbackRate:-0.5(向后半速)</div><div class="line"></div><div class="line">setTimeout(function()&#123;</div><div class="line">    audio.defaultPlaybackRate = 0.5;</div><div class="line">    audio.load();    </div><div class="line">&#125;,1000);</div><div class="line"></div><div class="line">var array = [-1,-0.5,0.5,1,2];</div><div class="line">var i = 0;</div><div class="line">var audio = document.getElementById(&apos;audio&apos;);</div><div class="line">document.onclick = function()&#123;</div><div class="line">    audio.playbackRate = array[i];</div><div class="line">    console.log(audio.playbackRate);</div><div class="line">    i++;</div><div class="line">    i=i%5;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-8：loop：</div><div class="line">loop:true(循环播放)</div><div class="line">loop:false(默认，不循环播放)</div><div class="line"></div><div class="line">-9：preload：设置或返回是否在页面加载后立即加载音频或视频</div><div class="line">preload:auto;(一旦页面加载，则开始加载音频或视频)</div><div class="line">preload:metadata;(当页面加载后仅加载音频或视频的元数据)</div><div class="line">preload:none;(页面加载后不加载音频或视频)</div><div class="line">[注意]当设置autoplay时，该属性无效</div><div class="line"></div><div class="line">-10：src：设置或返回音频或视频的当前来源</div><div class="line">audio.src = &apos;http://7xpdkf.com1.z0.glb.clouddn.com/song.mp3&apos;;</div><div class="line"></div><div class="line">-11：volume：设置或返回音频或视频的当前音量</div><div class="line">volume(取得为0-1，0为静音，1为最大，默认为1)</div><div class="line">if(audio.volume&lt;=0.9)audio.volume+=0.1;</div><div class="line">if(audio.volume&gt;=0.1)audio.volume-=0.1;</div><div class="line"></div><div class="line">- 事件：</div><div class="line">--1. 当音频或视频正在加载过程中，会依次发生以下事件：</div><div class="line"></div><div class="line">&lt;audio id=&quot;audio&quot; src=&quot;http://7xpdkf.com1.z0.glb.clouddn.com/myocean.mp3&quot; controls&gt;&lt;/audio&gt;</div><div class="line">&lt;script&gt;    </div><div class="line"></div><div class="line">//loadstart:提示浏览器开始寻找指定的音频或视频</div><div class="line">audio.onloadstart = function()&#123;</div><div class="line">    console.log(&apos;loadstart&apos;);</div><div class="line">&#125;</div><div class="line">//durationchange:提示音频或视频的时长已改变</div><div class="line">audio.ondurationchange = function()&#123;</div><div class="line">    console.log(&apos;durationchange&apos;);</div><div class="line">&#125;    </div><div class="line">//loadedmetadata:提示音频或视频的元数据已加载</div><div class="line">audio.onloadedmetadata = function()&#123;</div><div class="line">    console.log(&apos;loadedmetadata&apos;);</div><div class="line">&#125;    </div><div class="line">//loadeddata:提示音频或视频的当前帧已加载，但没有足够数据播放下一帧</div><div class="line">audio.onloadeddata = function()&#123;</div><div class="line">    console.log(&apos;loadeddata&apos;);</div><div class="line">&#125;   </div><div class="line">//progress:提示浏览器正在下载指定的音频或视频</div><div class="line">audio.onprogress = function()&#123;</div><div class="line">    console.log(&apos;progress&apos;);</div><div class="line">&#125;    </div><div class="line">//canplay:提示浏览器能够开始播放指定的音频或视频</div><div class="line">audio.oncanplay = function()&#123;</div><div class="line">    console.log(&apos;canplay&apos;);</div><div class="line">&#125;    </div><div class="line">//canplaythrough:提示音频或视频能够不停顿地一直播放</div><div class="line">audio.oncanplaythrough = function()&#123;</div><div class="line">    console.log(&apos;canplaythrough&apos;);</div><div class="line">&#125;    </div><div class="line">&lt;/script&gt;</div><div class="line"></div><div class="line">--2. 影响音频或视频数据加载的事件:</div><div class="line">&lt;video id=&quot;video&quot; src=&quot;http://7xpdkf.com1.z0.glb.clouddn.com/movie.mp4&quot; controls&gt;&lt;/video&gt;</div><div class="line">&lt;script&gt;</div><div class="line"></div><div class="line">setTimeout(function()&#123;</div><div class="line">    video.src=&apos;&apos;;</div><div class="line">&#125;,2000);   </div><div class="line">//abort:在音频或视频终止加载时触发</div><div class="line">video.onabort = function()&#123;</div><div class="line">    console.log(&apos;abort&apos;);</div><div class="line">&#125;</div><div class="line">//error:在音频或视频加载发生错误时触发</div><div class="line">video.onerror = function()&#123;</div><div class="line">    console.log(&apos;error&apos;);</div><div class="line">&#125;    </div><div class="line">//stalled:在浏览器尝试获取媒体数据，但数据不可用时触发</div><div class="line">video.onstalled = function()&#123;</div><div class="line">    console.log(&apos;stalled&apos;);</div><div class="line">&#125;   </div><div class="line">//suspend:在音频或视频数据被阻止加载时触发(可以是完成加载后触发，或者因为被暂停)</div><div class="line">video.onsuspend = function()&#123;</div><div class="line">    console.log(&apos;suspend&apos;);</div><div class="line">&#125;    </div><div class="line">//empted:在发生故障并且文件突然不可用时触发</div><div class="line">video.onemptied = function()&#123;</div><div class="line">    console.log(&apos;emptied&apos;);</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div><div class="line">--3. 音频或视频控制按钮发生改变时触发:</div><div class="line">&lt;audio id=&quot;audio&quot; src=&quot;http://7xpdkf.com1.z0.glb.clouddn.com/honey.mp3&quot; controls&gt;&lt;/audio&gt;</div><div class="line">&lt;script&gt;    </div><div class="line">var i = 1;</div><div class="line">document.onclick = function()&#123;</div><div class="line">    i+=0.1;</div><div class="line">    audio.playbackRate = i;</div><div class="line">&#125;</div><div class="line">//ended:音频或视频文件播放完毕后触发</div><div class="line">audio.onended = function()&#123;</div><div class="line">    console.log(&apos;ended&apos;);</div><div class="line">&#125;</div><div class="line">//pause:音频或视频文件暂停时触发</div><div class="line">audio.onpause = function()&#123;</div><div class="line">    console.log(&apos;pause&apos;);</div><div class="line">&#125;    </div><div class="line">//play:音频或视频文件已经就绪可以开始播放时触发</div><div class="line">audio.onplay = function()&#123;</div><div class="line">    console.log(&apos;play&apos;);</div><div class="line">&#125;    </div><div class="line">//playing:音频或视频已开始播放时触发</div><div class="line">audio.onplaying = function()&#123;</div><div class="line">    console.log(&apos;playing&apos;);</div><div class="line">&#125;    </div><div class="line">//ratechange:播放速度改变进触发</div><div class="line">audio.onratechange = function()&#123;</div><div class="line">    console.log(&apos;ratechange&apos;);</div><div class="line">&#125;    </div><div class="line">//seeked:指示定位已结束时触发</div><div class="line">audio.onseeked = function()&#123;</div><div class="line">    console.log(&apos;seeked&apos;);</div><div class="line">&#125;   </div><div class="line">//seeking:正在进行指示定位时触发</div><div class="line">audio.onseeking = function()&#123;</div><div class="line">    console.log(&apos;seeking&apos;);</div><div class="line">&#125;    </div><div class="line">//timeupdate:播放位置改变时触发[注意:播放和调整指示定位时都会触发]</div><div class="line">audio.ontimeupdate = function()&#123;</div><div class="line">    console.log(&apos;timeupdate&apos;);</div><div class="line">&#125;    </div><div class="line">//volumechange:音量改变时触发</div><div class="line">audio.onvolumechange = function()&#123;</div><div class="line">    console.log(&apos;volumechange&apos;);</div><div class="line">&#125;    </div><div class="line">//waiting:需要缓冲下一帧而停止时触发</div><div class="line">audio.onwaiting = function()&#123;</div><div class="line">    console.log(&apos;waiting&apos;);</div><div class="line">&#125;    </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注：<audio>元素在一个原生的javascript构造函数Audio，可以在任何时候播放音频。Audio和Image很像，但Audio不用像Image那样必须插入到文档中，只要创建一个新实例，并传入音频源文件即可  </audio></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var audio = new Audio(&apos;test.mp3&apos;);</div><div class="line">&lt;script&gt;</div><div class="line">var audio = new Audio(&apos;http://7xpdkf.com1.z0.glb.clouddn.com/honey.mp3&apos;);</div><div class="line">audio.oncanplaythrough = function()&#123;</div><div class="line">    audio.controls = true;</div><div class="line">    document.body.appendChild(audio);</div><div class="line">&#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2014/07/11/Html5/Html5之标签/" data-title="Html5之audio/video" data-url="http://yoursite.com/2014/07/11/Html5/Html5之标签/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"Unconsciously"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/Html5/">Html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/audio-video/">audio/video</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../19/Html5/H5之触摸事件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Html5之触摸事件
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../../05/11/页面重构与优化.html/定位与浮动/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">CSS页面重构/优化之absolute/float</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 Unconsciously All Rights Reserved.</p>
+	      <p id="copyRightCn">CACAMO 保留所有权利</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+    <a href="../../../../../atom.xml" class="mobile-nav-link">RSS</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+<script src="../../../../../js/bootstrap.js"></script>
+
+
+
+
+  <script src="../../../../../js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Unconsciously
+          </div>
+          <div class="panel-body">
+            Copyright © 2016 CACAMO All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

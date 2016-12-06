@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>nodejs02-进阶篇 | Unconsciously</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Unconsciously,前端,设计,前端开发,用户体验,设计,nodejs,JavaScript" />
+  
+  
+  
+  
+  <meta name="description" content="在NodeJS中，一般将代码合理拆分到不同的JS文件中，每一个文件就是一个模块，而文件路径就是模块名;在编写每个模块时，都有require、exports、module三个预先定义好的变量可供使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NodeJS02-进阶篇">
+<meta property="og:url" content="http://yoursite.com/2014/11/16/nodejs/NodeJs02/index.html">
+<meta property="og:site_name" content="Unconsciously">
+<meta property="og:description" content="在NodeJS中，一般将代码合理拆分到不同的JS文件中，每一个文件就是一个模块，而文件路径就是模块名;在编写每个模块时，都有require、exports、module三个预先定义好的变量可供使用。">
+<meta property="og:updated_time" content="2016-12-06T05:58:55.634Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NodeJS02-进阶篇">
+<meta name="twitter:description" content="在NodeJS中，一般将代码合理拆分到不同的JS文件中，每一个文件就是一个模块，而文件路径就是模块名;在编写每个模块时，都有require、exports、module三个预先定义好的变量可供使用。">
+  
+  <link rel="icon" href="/css/images/avatar.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../../../../css/style.css">
+
+  <script src="../../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../../../../css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/avatar.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../../../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../about">关于</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../atom.xml">rss</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-nodejs/NodeJs02" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      NodeJS02-进阶篇
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2014-11-16T12:40:10.000Z" itemprop="datePublished">2014-11-16</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../../../../categories/NodeJS/">NodeJS</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在NodeJS中，一般将代码合理拆分到不同的JS文件中，每一个文件就是一个模块，而文件路径就是模块名;在编写每个模块时，都有require、exports、module三个预先定义好的变量可供使用。<br>  <a id="more"></a>  </p>
+<ul>
+<li>require函数：在当前模块中加载或使用其他模块时，传入一个模块名[相对路径./绝对路径/或C:盘符开头]，返回一个模块导出对象。注：模块名中的.js扩展名可省；</li>
+<li>exports对象：当前模块的导出对象，用于导出模块公有方法和属性。require函数返回的即是当前模块的exports对象；</li>
+<li>module对象：可访问到当前模块的部分相关信息，多用于替换当前模块的导出对象；  </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//模块的加载：</div><div class="line">var foo1 = require(&apos;./foo&apos;);</div><div class="line">var foo2 = require(&apos;./foo.js&apos;);</div><div class="line">var foo3 = require(&apos;/home/user/foo&apos;);</div><div class="line">var foo4 = require(&apos;/home/user/foo.js&apos;);</div><div class="line">// foo1至foo4中保存的是同一个模块的导出对象。</div><div class="line">var data = require(&apos;./data.json&apos;);</div><div class="line"></div><div class="line">//模块导出对象：</div><div class="line">exports.hello = function () &#123;</div><div class="line">    console.log(&apos;Hello World!&apos;);</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//模块默认导出对象被替换为一个函数：</div><div class="line">module.exports = function () &#123;</div><div class="line">    console.log(&apos;Hello World!&apos;);</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>模块初始化</strong><br>一个模块中的JS代码仅在模块第一次被使用时执行一次，并在执行过程中初始化模块的导出对象。之后，缓存起来的导出对象被重复利用。</li>
+<li><strong>主模块</strong><br>通过命令行参数传递给NodeJS以启动程序的模块被称为主模块。主模块负责调度组成整个程序的其它模块完成工作。如主模块main.js<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">$ node main.js</div><div class="line">------------完整示例-----------------</div><div class="line">//文件目录：</div><div class="line">- /home/user/hello/</div><div class="line">    - util/</div><div class="line">        counter.js</div><div class="line">    main.js</div><div class="line"></div><div class="line">//其中counter.js内容：</div><div class="line">//其模块内部定义一个私有变量i，并在exports对象导出了一个公有方法count</div><div class="line">var i = 0;</div><div class="line">function count() &#123;</div><div class="line">    return ++i;</div><div class="line">&#125;</div><div class="line">exports.count = count;</div><div class="line"></div><div class="line">//主模块main.js内容：</div><div class="line">var counter1 = require(&apos;./util/counter&apos;);</div><div class="line">var counter2 = require(&apos;./util/counter&apos;);</div><div class="line"></div><div class="line">console.log(counter1.count());</div><div class="line">console.log(counter2.count());</div><div class="line">console.log(counter2.count());</div><div class="line"></div><div class="line">//运行结果如下：</div><div class="line">$ node main.js</div><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>结果说明：counter.js并没有被require了两次而初始化两次，仅在counter.js第一次被使用时执行并初始化模块导出对象，然后将导出对象缓存起来，重复利用，所以i值是依次递增的。<br><strong>NodeJS使用CMD模块系统，主模块作为程序入口点，所有模块在执行过程中只初始化一次。</strong>  </p>
+<ul>
+<li><strong>模块路径解析规则：</strong><br>require函数支持斜杠（/）或盘符（C:）开头的绝对路径，也支持./开头的相对路径—-在模块间建立了强耦合关系：缺点：一旦某个模块文件变更存放位置，则相关依赖模块也需调整位置，牵一发而动全身。<br>SO，require函数支持第三种形式的路径，写法类似于foo/bar，并依次按照以下规则解析路径，直到找到模块位置：  </li>
+</ul>
+<ol>
+<li>NodeJS内置模块：不做路径解析，直接返回内部模块的导出对象：require(‘fs’)；  </li>
+<li>node_modules目录：NodeJS定义了一个特殊的node_modules目录用于存放模块。例如某个模块的绝对路径是/home/user/hello.js，在该模块中使用require(‘foo/bar’)方式加载模块时，则NodeJS依次尝试使用以下路径：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/home/user/node_modules/foo/bar</div><div class="line">/home/node_modules/foo/bar</div><div class="line">/node_modules/foo/bar</div></pre></td></tr></table></figure>
+<ol>
+<li>NODE_PATH环境变量：NodeJS允许通过NODE_PATH环境变量来指定额外的模块搜索路径。NODE_PATH环境变量中包含一到多个目录路径，路径之间在Linux下使用:分隔，在Windows下使用;分隔。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#定义NODE_PATH环境变量：</div><div class="line">NODE_PATH=/home/user/lib:/home/lib</div><div class="line"></div><div class="line">//当使用require(&apos;foo/bar&apos;)的方式加载模块时，则NodeJS依次尝试以下路径</div><div class="line"> /home/user/lib/foo/bar</div><div class="line"> /home/lib/foo/bar</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>包（package）</strong>：由多个子模块组成的大模块称做包，并把所有子模块放在同一个目录里。在组成一个包的所有子模块中，需要有一个入口模块，入口模块的导出对象被作为包的导出对象。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">要求：cat目录定义一个包-3个子模块，main.js为入口模块</div><div class="line"># 目录结构：</div><div class="line">- /home/user/lib/</div><div class="line">    - cat/    </div><div class="line">        head.js</div><div class="line">        body.js</div><div class="line">        main.js</div><div class="line"></div><div class="line">//main.js模块内容：</div><div class="line">var head = require(&apos;./head&apos;);</div><div class="line">var body = require(&apos;./body&apos;);</div><div class="line">exports.create = function (name) &#123;</div><div class="line">    return &#123;</div><div class="line">        name: name,</div><div class="line">        head: head.create(),</div><div class="line">        body: body.create()</div><div class="line">    &#125;;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>在其他模块使用该包时，需加载包的入口模块：require(‘/home/user/lib/cat/main’)，入口名出现在路径里了，为更像单个模块，隐藏入口名，需解决：<br>i. 当模块的文件名是index.js，加载模块时可以使用模块所在目录的路径代替模块文件路径：<br>ii. 在包目录下包含一个package.json文件，并在其中指定入口模块的路径–自定义入口模块的文件名与存放位置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># index.js:</div><div class="line">var cat = require(&apos;/home/user/lib/cat&apos;);</div><div class="line">或</div><div class="line">var cat = require(&apos;/home/user/lib/cat/index&apos;);  </div><div class="line"></div><div class="line"># cat模块重构如下：</div><div class="line">- /home/user/lib/</div><div class="line">    - cat/</div><div class="line">        + doc/</div><div class="line">        - lib/</div><div class="line">            head.js</div><div class="line">            body.js</div><div class="line">            main.js</div><div class="line">        + tests/</div><div class="line">        package.json</div><div class="line"></div><div class="line">#package.json内容：</div><div class="line">&#123;</div><div class="line">    &quot;name&quot;: &quot;cat&quot;,</div><div class="line">    &quot;main&quot;: &quot;./lib/main.js&quot;</div><div class="line">&#125;</div><div class="line"># 使用require(&apos;/home/user/lib/cat&apos;)的方式加载模块。</div><div class="line"># NodeJS会根据包目录下的package.json找到入口模块所在位置</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>一个标准的工程目录：</strong><br>示例：编写一个命令行程序</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- /home/user/workspace/node-echo/   # 工程目录</div><div class="line">    - bin/                          # 存放命令行相关代码</div><div class="line">        node-echo</div><div class="line">    + doc/                          # 存放文档</div><div class="line">    - lib/                          # 存放API相关代码</div><div class="line">        echo.js</div><div class="line">    - node_modules/                 # 存放三方包</div><div class="line">        + argv/</div><div class="line">    + tests/                        # 存放测试用例</div><div class="line">    package.json                    # 元数据文件</div><div class="line">    README.md                       # 说明文件</div></pre></td></tr></table></figure>
+<p>其中部分文件内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">/* bin/node-echo */</div><div class="line">var argv = require(&apos;argv&apos;),</div><div class="line">    echo = require(&apos;../lib/echo&apos;);</div><div class="line">console.log(echo(argv.join(&apos; &apos;)));</div><div class="line"></div><div class="line">/* lib/echo.js */</div><div class="line">module.exports = function (message) &#123;</div><div class="line">    return message;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">/* package.json */</div><div class="line">&#123;</div><div class="line">    &quot;name&quot;: &quot;node-echo&quot;,</div><div class="line">    &quot;main&quot;: &quot;./lib/echo.js&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>以上例子中分类存放了不同类型的文件，并通过node_moudles目录直接使用三方包名加载模块。此外，定义了package.json之后，node-echo目录也可被当作一个包来使用</p>
+<p>  参考文档：<br>  <a href="https://nqdeng.github.io/7-days-nodejs/" target="_blank" rel="external">7-days-nodejs</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2014/11/16/nodejs/NodeJs02/" data-title="NodeJS02-进阶篇" data-url="http://yoursite.com/2014/11/16/nodejs/NodeJs02/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"Unconsciously"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/NodeJs/">NodeJs</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../../../2015/03/20/CSS3/用户界面/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          CSS3-03 用户界面
+        
+      </div>
+    </a>
+  
+  
+    <a href="../../../15/nodejs/Nodejs01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">NodeJS01-入门篇</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 Unconsciously All Rights Reserved.</p>
+	      <p id="copyRightCn">CACAMO 保留所有权利</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+    <a href="../../../../../atom.xml" class="mobile-nav-link">RSS</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+<script src="../../../../../js/bootstrap.js"></script>
+
+
+
+
+  <script src="../../../../../js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Unconsciously
+          </div>
+          <div class="panel-body">
+            Copyright © 2016 CACAMO All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

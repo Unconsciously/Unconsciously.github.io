@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>css页面重构/优化之absolute/float | Unconsciously</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Unconsciously,前端,设计,前端开发,用户体验,设计,nodejs,JavaScript" />
+  
+  
+  
+  
+  <meta name="description" content="未设定left/top值的absolute元素&amp;lt;–&amp;gt;float元素,具有破坏性，如清除浮动造成的高度塌陷的问题。
+
+ 注：关于脱离文档流：即将元素从普通的布局排版中拿走，其他盒子在定位的时候，会当做脱离文档流的元素不存在而进行定位。需要注意的是，使用float脱离文档流时，其他盒子会无视这个元素，但其他盒子内的文本依然会为这个元素让出位置，环绕在周围。而对于使用absolute po">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS页面重构/优化之absolute/float">
+<meta property="og:url" content="http://yoursite.com/2014/05/11/页面重构与优化.html/定位与浮动/index.html">
+<meta property="og:site_name" content="Unconsciously">
+<meta property="og:description" content="未设定left/top值的absolute元素&amp;lt;–&amp;gt;float元素,具有破坏性，如清除浮动造成的高度塌陷的问题。
+
+ 注：关于脱离文档流：即将元素从普通的布局排版中拿走，其他盒子在定位的时候，会当做脱离文档流的元素不存在而进行定位。需要注意的是，使用float脱离文档流时，其他盒子会无视这个元素，但其他盒子内的文本依然会为这个元素让出位置，环绕在周围。而对于使用absolute po">
+<meta property="og:updated_time" content="2016-12-06T06:07:49.342Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS页面重构/优化之absolute/float">
+<meta name="twitter:description" content="未设定left/top值的absolute元素&amp;lt;–&amp;gt;float元素,具有破坏性，如清除浮动造成的高度塌陷的问题。
+
+ 注：关于脱离文档流：即将元素从普通的布局排版中拿走，其他盒子在定位的时候，会当做脱离文档流的元素不存在而进行定位。需要注意的是，使用float脱离文档流时，其他盒子会无视这个元素，但其他盒子内的文本依然会为这个元素让出位置，环绕在周围。而对于使用absolute po">
+  
+  <link rel="icon" href="/css/images/avatar.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../../../../css/style.css">
+
+  <script src="../../../../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="../../../../../css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/avatar.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="../../../../../index.html">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../about">关于</a> </li>
+                
+                  <li> <a class="main-nav-link" href="../../../../../atom.xml">rss</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="请输入关键词..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(无标题)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '../../../../../content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="../../../../../js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-页面重构与优化.html/定位与浮动" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      CSS页面重构/优化之absolute/float
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="" class="article-date">
+	  <time datetime="2014-05-11T13:30:10.000Z" itemprop="datePublished">2014-05-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../../../../categories/CSS页面重构/">CSS页面重构</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>未设定left/top值的absolute元素&lt;–&gt;float元素,具有破坏性，如清除浮动造成的高度塌陷的问题。</p>
+</blockquote>
+<p> 注：关于<strong>脱离文档流</strong>：即将元素从普通的布局排版中拿走，其他盒子在定位的时候，会当做脱离文档流的元素不存在而进行定位。需要注意的是，使用float脱离文档流时，其他盒子会无视这个元素，但其他盒子内的文本依然会为这个元素让出位置，环绕在周围。而对于使用absolute positioning脱离文档流的元素，其他盒子与其他盒子内的文本都会无视它</p>
+<a id="more"></a>
+<ol>
+<li>无定位值的absolute元素就是个连实际宽度也没有的float浮动元素—无宽度</li>
+</ol>
+<ul>
+<li><strong>有定位值的absolute元素可以使用margin定位</strong>：无论absolute元素是否设置了left/top值，其margin属性值都是可以起作用的</li>
+<li><strong>无定位值的absolute元素是个没有实际宽度的浮动元素</strong>：没有设置定位值的absolute元素是个普通又不普通的元素，普通之处在于其依旧在DOM tree中，对margin等属性敏感；不普通在于其实际的高宽都丢失了。这非常类似于浮动(float)，浮动的本质就是“包裹与破坏”，破坏高度，浮动元素的实际占据高度为0；而absolute元素（无定位值）也是“包裹与破坏”，只是其“破坏”比float更加凶猛，不仅实际的高度没有，连实际的宽度也没有</li>
+<li>position为absolute的元素如果没有设置left, top值(;)=<em>普通的inline-block属性元素</em>)与设置值为left:0;top:0; (;( <em>直接从DOM tree里面脱离，独立于文档流，并相对于最近的relative属性的祖先标签定位(若无，则相对于body定位</em>) 的效果不一样：</li>
+</ul>
+<blockquote>
+<p>页面布局要具有较高的重用性和扩展性–“页面重构”，而非“页面切图”：<br>以CSS模块化以及重用性为基本要求，布局需“无宽度”，最大限度的利用标签本身的特性，这样，CSS代码成本又小，又利于日后的扩展与维护：<br>“无宽度”具体指的是没有固定的宽度值（尤其是以px为单位的宽度值，em，rem需看具体情况，%百分值不在其中）；—–可用absolute的绝对定位元素的非绝对定位来实现</p>
+</blockquote>
+<ul>
+<li>文字的阴影效果： IE对CSS3中的text-shadow的支持不佳-兼容处理：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">#CSS代码：</div><div class="line">.zxx_show&#123;padding:20px; background:#f0f3f9; color:#aaaaaa; font-size:14px;&#125;</div><div class="line">.zxx_text&#123;position:absolute; margin:-1px 0 0 -1px; color:#333333;&#125;</div><div class="line"></div><div class="line">#HTML代码：</div><div class="line">&lt;div class=&quot;zxx_show&quot;&gt;</div><div class="line">    &lt;span class=&quot;zxx_text&quot;&gt;这是一段用来测试的文字，看看是否有投影效果~~&lt;/span&gt;</div><div class="line">    这是一段用来测试的文字，看看是否有投影效果~~</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><em>注：绝对定位元素需要写在投影文字之前，因为absolute元素实际占据的高度宽度都是0，所以文字可以自然而然的在其下方显示，由于下方的文字颜色较浅，于是便形成投影效果。此方法很精妙，可惜有小小兼容性差异，IE6下投影方向是水平朝右，IE7是右上方向，需要hack修复</em></p>
+<ul>
+<li><p>自适应布局：仿float,宽度固定的头像和描述标签：对描述标签使用margin或padding与头像撑开一段距离，对头像使用无定位值的absolute定位：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#css代码：</div><div class="line">.zxx_show&#123;height:120px; padding:20px; background:#f0f3f9;&#125;</div><div class="line">.zxx_image&#123;position:absolute;&#125;</div><div class="line">.zxx_desc&#123;padding-left:100px;&#125;</div><div class="line"></div><div class="line">#HTML代码：</div><div class="line">&lt;div class=&quot;zxx_show&quot;&gt;</div><div class="line">    &lt;a href=&quot;#zxx&quot; class=&quot;zxx_image&quot;&gt;</div><div class="line">    	&lt;img src=&quot;http://image.zhangxinxu.com/image/blog/zxx_90_0824.jpg&quot; width=&quot;90&quot; height=&quot;111&quot; /&gt;</div><div class="line">    &lt;/a&gt;</div><div class="line">    &lt;p class=&quot;zxx_desc&quot;&gt;我是男性，我是中国人，我是80后，我现在要讲一大堆的废话用来做效果测试，巴拉巴拉小魔仙。&lt;/p&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>浮动出现的意义其实只是用来让文字环绕图片而已，仅此而已。而我们目前用浮动实现页面布局本不是浮动该干的事情,浮动的本质“包裹与破坏”</li>
+</ol>
+<ul>
+<li><p><strong>浮动的“包裹性”</strong>：撇开浮动的“破坏性”，浮动就是个带有方位的display:inline-block属性：display:block; float:left;的CSS代码中“display:block;”是多余的!!!</p>
+<blockquote>
+<p>两者的差异是浮动的方向性，display:inline-block仅仅一个水平排列方向，就是从左往右，而float也可从右往左排列</p>
+</blockquote>
+</li>
+<li><p>实现宽度自适应：让按钮的大小自适应于文字的个数，即按钮要自动包裹在文字的外面：</p>
+</li>
+<li>方案一：使用display:inline-block方法</li>
+<li>方案二：使用float:left;方法</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">#css代码：</div><div class="line">.btn1&#123;display:inline-block; background:url(../image/sina_gray_btn.png) no-repeat left top; padding-left:3px; color:#000000; font-size:12px; text-decoration:none;&#125;</div><div class="line">.btn1 cite&#123;display:block; line-height:26px; padding:0 13px 0 10px; background:url(../image/sina_gray_btn.png) no-repeat right top;&#125;</div><div class="line">#HTML代码：</div><div class="line">&lt;a href=&quot;javascript:void(0);&quot; class=&quot;btn1&quot;&gt;&lt;cite&gt;inline-block方法&lt;/cite&gt;&lt;/a&gt;</div><div class="line"></div><div class="line">#css代码：</div><div class="line">.btn2&#123;float:left; background:url(../image/sina_gray_btn.png) no-repeat left top; padding-left:3px; color:#000000; font-size:12px; text-decoration:none;&#125;</div><div class="line">.btn2 cite&#123;display:block; line-height:26px; padding:0 13px 0 10px; background:url(../image/sina_gray_btn.png) no-repeat right top;&#125;</div><div class="line">#HTML代码：</div><div class="line">&lt;a href=&quot;javascript:void(0);&quot; class=&quot;btn1&quot;&gt;&lt;cite&gt;float方法&lt;/cite&gt;&lt;/a&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>浮动的“破坏性”</strong>：文字之所以会环绕含有float属性的图片,是因为<em>浮动破坏了正常的line boxes</em></li>
+</ul>
+<hr>
+<p>拓展：inline boxes模型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;我是inline box 1 &lt;em&gt;我是em，是inline box&lt;/em&gt; 我是inline box 2 。&lt;/p&gt;</div></pre></td></tr></table></figure></p>
+<p>这段HTML代码涉及4种boxes：</p>
+<ul>
+<li>i. p标签所在的containing box：包含了其他的boxes</li>
+<li>ii. inline boxes不会让内容成块显示，而是排成一行，如果外部含inline属性的标签(span,a,cite,em等)，则属于inline boxes；如果是个光秃秃的文字，则属于匿名inline boxes，如inline box1/ 2属于匿名inline boxes.</li>
+<li>在containing boxes里，一个一个的inline boxes组成了line boxes。这是浮动影响布局的关键box类型</li>
+<li>content area 是一种围绕文字看不见的box。content area的大小与font-size大小相关</li>
+</ul>
+<p>正常情况下，图片自身就是个inline boxes，line boxes的高度是由其内部最高的inline boxes高度决定的,so 默认状态下，一张图片只能与一行文字对齐。而要想让一张图片与多行文字对齐，只能破坏正常的图片inline boxes模型，为图片添加float:left;使图片从line boxes上脱离出来，跟随自身的方位属性，靠边排列——空壳子/表象。</p>
+<blockquote>
+<p>在目前CSS中，所有的高度都是有两个CSS模型产生的，一个是box盒状模型，对应CSS为”height+padding+margin”[<em>明显的height值和隐藏的height值</em>]，另外一个是line box模型，对应样式为”line-height”[:<em>line box模型真正的高度表现则是由每行众多的inline boxes组成的line boxes（等于内部最高的inline box的高度），而这些line boxes的高度垂直堆叠形成了containing box的高度</em>]。</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2014/05/11/页面重构与优化.html/定位与浮动/" data-title="CSS页面重构/优化之absolute/float" data-url="http://yoursite.com/2014/05/11/页面重构与优化.html/定位与浮动/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"Unconsciously"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/CSS页面重构/">CSS页面重构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/absolute/">absolute</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../../../../tags/float/">float</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="../../../../07/11/Html5/Html5之标签/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">
+        
+          Html5之audio/video
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    
+    <ol class="toc">无</ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 Unconsciously All Rights Reserved.</p>
+	      <p id="copyRightCn">CACAMO 保留所有权利</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../../../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../../../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../../../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../../../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../../../../about" class="mobile-nav-link">About</a>
+  
+    <a href="../../../../../atom.xml" class="mobile-nav-link">RSS</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../../../../fancybox/jquery.fancybox.css">
+  <script src="../../../../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../../../../js/script.js"></script>
+<script src="../../../../../js/bootstrap.js"></script>
+
+
+
+
+  <script src="../../../../../js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Unconsciously
+          </div>
+          <div class="panel-body">
+            Copyright © 2016 CACAMO All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

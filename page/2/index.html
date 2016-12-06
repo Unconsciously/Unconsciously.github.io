@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Unconsciously</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="Unconsciously,前端,设计,前端开发,用户体验,设计,nodejs,JavaScript" />
+  
+  
+  
+  
+  <meta name="description" content="木事敲敲代码看看电影喝喝小茶~~~">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unconsciously">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Unconsciously">
+<meta property="og:description" content="木事敲敲代码看看电影喝喝小茶~~~">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Unconsciously">
+<meta name="twitter:description" content="木事敲敲代码看看电影喝喝小茶~~~">
+  
+  <link rel="icon" href="/css/images/avatar.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="../../css/style.css">
+
+  <script src="../../js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/home.css" >
+  
+
+  
+
+  
+
+</head>
+
+<body>
+  
+    <header id="header">
+  <!-- 
+    <div id="banner"></div>
+    <div id="header-outer" class="outer">
+      <div id="header-title" class="inner">
+        <h1 id="logo-wrap">
+          <a href="../../index.html" id="logo">Unconsciously</a>
+        </h1>
+        
+          <h2 id="subtitle-wrap">
+            <a href="../../index.html" id="subtitle">懒散人一枚是也~~~</a>
+          </h2>
+        
+      </div>
+      <div id="header-inner" class="inner">
+        <nav id="main-nav">
+          <a id="main-nav-toggle" class="nav-icon"></a>
+          
+            <a class="main-nav-link" href="../../index.html">首页</a>
+          
+            <a class="main-nav-link" href="../../archives">归档</a>
+          
+            <a class="main-nav-link" href="../../categories">分类</a>
+          
+            <a class="main-nav-link" href="../../tags">标签</a>
+          
+            <a class="main-nav-link" href="../../about">关于</a>
+          
+            <a class="main-nav-link" href="../../atom.xml">rss</a>
+          
+        </nav>
+        <nav id="sub-nav">
+          
+          <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        </nav>
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        </div>
+      </div>
+    </div>
+  -->
+
+
+  
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(/css/images/home-bg.jpg); background-size: auto 100%;">
+  
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Unconsciously</a></h1>
+            <h3>木事敲敲代码看看电影喝喝小茶~~~</h3>
+            <h5>CACAMO</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+    <script>
+        var img = new Image();
+        var intrologodiv = document.getElementById("intrologo");
+        img.src = intrologodiv.style.backgroundImage.replace('url(','').replace(')','').replace(/\"/gi, "");
+        img.onload=function(){
+          if (img.width / img.height <= document.body.clientWidth / document.body.clientHeight) {
+            intrologodiv.style.backgroundSize = "100% auto";
+          } else {
+            intrologodiv.style.backgroundSize = "auto 100%";
+          }
+        };
+    </script>
+ 
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="../../index.html">首页</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../archives">归档</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../categories">分类</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../tags">标签</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../about">关于</a>
+        
+          <a id="beautifont" class="main-nav-link" href="../../atom.xml">rss</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-JavaScript设计模式/Observer-Pattern"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../2014/09/15/JavaScript设计模式/Observer-Pattern/">订阅者</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../2014/09/15/JavaScript设计模式/Observer-Pattern/" class="article-date">
+	  <time datetime="2014-09-15T11:30:10.000Z" itemprop="datePublished">2014-09-15</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/JavaScript/">JavaScript</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>当对象间存在一对多关系时，则使用观察者模式（Observer Pattern），即当一个对象(目标对象)的状态发生改变时，所有依赖于它的对象(观察者对象)都得到通知并被自动更新  </p>
+</blockquote>
+<p><em>观察者模式属于行为型模式</em><br>
+        <!-- 
+当对象间存在一对多关系时，则使用观察者模式（Observer Pattern），即当一个对象(目标对象)的状态发生改变时，所有依赖于它的对象(观察者对象)都得到通知并被自动更新  
+
+观察者模式属于行为型模式  
+
+意图：定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。
+主要解决：‘一个对象状态改变就给其他对象发布通知’ 的问题，而且......  -->
+        <p class="article-more-link">
+          <a href="../../2014/09/15/JavaScript设计模式/Observer-Pattern/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Html5/字符集"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../2014/07/21/Html5/字符集/">Html5之字符编码集</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../2014/07/21/Html5/字符集/" class="article-date">
+	  <time datetime="2014-07-21T11:30:10.000Z" itemprop="datePublished">2014-07-21</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Html5/">Html5</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://www.zhangxinxu.com/wordpress/2011/03/html5%E7%BB%88%E6%9E%81%E5%A4%87%E5%BF%98%E5%A4%A7%E5%85%A8%EF%BC%88%E5%9B%BE%E7%89%87%E7%89%88%E6%96%87%E5%AD%97%E7%89%88%EF%BC%89/">html5终极备忘大全</a><br>
+        <!-- html5终极备忘大全  
+12345678910 # 为了确保所有新的HTML5元素能以block水平的元素正确地渲染， 雷米夏普(Remy Sharp)创建了一个脚本，通常称为HTML5 shiv&lt;!--[if IE]&gt;&lt;script src=&quot;http://html5shim.googlecode.com/svn/trunk/html5.js&quot;&g......  -->
+        <p class="article-more-link">
+          <a href="../../2014/07/21/Html5/字符集/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Html5/">Html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/字符编码集/">字符编码集</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Html5/H5之触摸事件"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../2014/07/19/Html5/H5之触摸事件/">Html5之触摸事件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../2014/07/19/Html5/H5之触摸事件/" class="article-date">
+	  <time datetime="2014-07-19T11:30:10.000Z" itemprop="datePublished">2014-07-19</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Html5/">Html5</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>HTML5中的触摸事件：touchstart、touchmove、touchend、touchcancel</p>
+</blockquote>
+<ol>
+<li><p>与PC端事件的差异对比：</p>
+<p>PC端的mousemove、mouseup、mousedown等事件，在移动端会失效(或使用不正常)，但click事件可以使用，只是会产生300ms的延迟问题</p>
+        <!-- 
+HTML5中的触摸事件：touchstart、touchmove、touchend、touchcancel
+
+
+与PC端事件的差异对比：
+PC端的mousemove、mouseup、mousedown等事件，在移动端会失效(或使用不正常)，但click事件可以使用，只是会产生300ms的延迟问题
+
+
+300ms的延迟问题：
+click事件在移动手机开发中会存在300ms的延迟问题，因早期手......  -->
+        <p class="article-more-link">
+          <a href="../../2014/07/19/Html5/H5之触摸事件/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Html5/">Html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/触摸事件/">触摸事件</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Html5/Html5之标签"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../2014/07/11/Html5/Html5之标签/">Html5之audio/video</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../2014/07/11/Html5/Html5之标签/" class="article-date">
+	  <time datetime="2014-07-11T11:30:10.000Z" itemprop="datePublished">2014-07-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/Html5/">Html5</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>HTML5新增了2个与媒体相关的标签video与audio，在网页中可嵌入跨浏览器的音频和视频内容，但不被IE8支持。位于媒体标签开闭之间的任何内容都将作为替补内容，当浏览器不支持这两个媒体元素时显示。<br>
+        <!-- 
+HTML5新增了2个与媒体相关的标签video与audio，在网页中可嵌入跨浏览器的音频和视频内容，但不被IE8支持。位于媒体标签开闭之间的任何内容都将作为替补内容，当浏览器不支持这两个媒体元素时显示。  
+
+
+audio、video基本用法：
+
+123456789101112131415161718192021222324252627282930313233343536373839404......  -->
+        <p class="article-more-link">
+          <a href="../../2014/07/11/Html5/Html5之标签/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/Html5/">Html5</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/audio-video/">audio/video</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-页面重构与优化.html/定位与浮动"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="../../2014/05/11/页面重构与优化.html/定位与浮动/">CSS页面重构/优化之absolute/float</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="../../2014/05/11/页面重构与优化.html/定位与浮动/" class="article-date">
+	  <time datetime="2014-05-11T13:30:10.000Z" itemprop="datePublished">2014-05-11</time>
+	</a>
+
+      
+    <a class="article-category-link" href="../../categories/CSS页面重构/">CSS页面重构</a>
+
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>未设定left/top值的absolute元素&lt;–&gt;float元素,具有破坏性，如清除浮动造成的高度塌陷的问题。</p>
+</blockquote>
+<p> 注：关于<strong>脱离文档流</strong>：即将元素从普通的布局排版中拿走，其他盒子在定位的时候，会当做脱离文档流的元素不存在而进行定位。需要注意的是，使用float脱离文档流时，其他盒子会无视这个元素，但其他盒子内的文本依然会为这个元素让出位置，环绕在周围。而对于使用absolute positioning脱离文档流的元素，其他盒子与其他盒子内的文本都会无视它</p>
+        <!-- 
+未设定left/top值的absolute元素&lt;–&gt;float元素,具有破坏性，如清除浮动造成的高度塌陷的问题。
+
+ 注：关于脱离文档流：即将元素从普通的布局排版中拿走，其他盒子在定位的时候，会当做脱离文档流的元素不存在而进行定位。需要注意的是，使用float脱离文档流时，其他盒子会无视这个元素，但其他盒子内的文本依然会为这个元素让出位置，环绕在周围。而对于使用absolute......  -->
+        <p class="article-more-link">
+          <a href="../../2014/05/11/页面重构与优化.html/定位与浮动/#more">阅读全文</a>
+        </p>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/CSS页面重构/">CSS页面重构</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/absolute/">absolute</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="../../tags/float/">float</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="../../index.html">&laquo; 上一页</a><a class="page-number" href="../../index.html">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2016 Unconsciously All Rights Reserved.</p>
+	      <p id="copyRightCn">CACAMO 保留所有权利</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="../../index.html" class="mobile-nav-link">Home</a>
+  
+    <a href="../../archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="../../categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="../../tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="../../about" class="mobile-nav-link">About</a>
+  
+    <a href="../../atom.xml" class="mobile-nav-link">RSS</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="../../fancybox/jquery.fancybox.css">
+  <script src="../../fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="../../js/script.js"></script>
+<script src="../../js/bootstrap.js"></script>
+
+
+  <script src="../../js/home.js"></script>
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Unconsciously
+          </div>
+          <div class="panel-body">
+            Copyright © 2016 CACAMO All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>
